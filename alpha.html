@@ -1,66 +1,105 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H-NOTE | SECTOR ALPHA (WRITING)</title>
     <style>
-        :root { --gold: #f0d78c; --deep: #111; }
+        :root { --gold: #f0d78c; --gold-deep: #b08d32; --bg: #050505; }
+        
         body { 
-            margin: 0; background: #050505; color: #ccc; 
+            margin: 0; background: var(--bg); color: #ccc; 
             font-family: 'Times New Roman', serif; line-height: 1.8;
+            overflow-x: hidden;
         }
-        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-        
-        .header-meta { font-family: 'Courier New', monospace; font-size: 0.7rem; color: var(--gold); letter-spacing: 3px; margin-bottom: 40px; }
-        
-        h1 { font-size: 2.5rem; color: white; letter-spacing: 8px; text-transform: uppercase; font-weight: 300; margin-bottom: 10px; }
-        .subtitle { font-style: italic; color: var(--gold); margin-bottom: 50px; font-size: 1.2rem; }
 
-        .content-block { border-left: 1px solid #333; padding-left: 30px; margin-bottom: 60px; }
-        h3 { color: white; text-transform: uppercase; letter-spacing: 3px; font-size: 1rem; }
-        
-        .blueprint-box { 
-            background: var(--deep); border: 1px solid var(--gold); 
-            padding: 30px; margin-top: 40px; position: relative;
+        .container { max-width: 850px; margin: 0 auto; padding: 80px 20px; }
+
+        /* Meta Header */
+        .meta-tag { 
+            font-family: 'Courier New', monospace; font-size: 0.7rem; 
+            color: var(--gold); letter-spacing: 4px; margin-bottom: 40px;
+            border-left: 2px solid var(--gold); padding-left: 15px;
         }
-        .download-btn {
-            display: inline-block; margin-top: 20px; padding: 12px 25px;
+
+        h1 { font-size: 3rem; color: white; letter-spacing: 10px; text-transform: uppercase; font-weight: 300; margin: 0; }
+        .subtitle { font-style: italic; color: var(--gold-deep); margin-bottom: 60px; font-size: 1.1rem; letter-spacing: 1px; }
+
+        /* Service Grid */
+        .service-section { margin-bottom: 60px; border-bottom: 1px solid #1a1a1a; padding-bottom: 40px; }
+        h2 { color: white; text-transform: uppercase; letter-spacing: 4px; font-size: 1.2rem; margin-bottom: 20px; }
+        
+        p { font-size: 1rem; color: #999; margin-bottom: 25px; }
+
+        .capability-list {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+            font-family: 'Courier New', monospace; font-size: 0.8rem;
+            color: var(--gold); list-style: none; padding: 0;
+        }
+        .capability-list li::before { content: "[+] "; color: white; }
+
+        /* The Alchemy Box */
+        .alchemy-box { 
+            background: #0a0a0a; border: 1px solid var(--gold-deep); 
+            padding: 40px; margin-top: 40px; position: relative;
+            box-shadow: 0 0 30px rgba(176, 141, 50, 0.05);
+        }
+        .alchemy-box h3 { margin-top: 0; color: white; letter-spacing: 3px; }
+
+        .cta-btn {
+            display: inline-block; margin-top: 30px; padding: 15px 35px;
             background: var(--gold); color: black; text-decoration: none;
-            text-transform: uppercase; font-weight: bold; font-size: 0.8rem; letter-spacing: 2px;
+            text-transform: uppercase; font-weight: bold; font-size: 0.8rem; 
+            letter-spacing: 3px; transition: 0.4s;
         }
-        .download-btn:hover { background: white; }
+        .cta-btn:hover { background: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,255,255,0.2); }
 
-        .back-nav { margin-top: 100px; font-family: 'Courier New', monospace; font-size: 0.7rem; }
-        .back-nav a { color: #555; text-decoration: none; letter-spacing: 2px; }
-        .back-nav a:hover { color: var(--gold); }
+        .footer-nav { margin-top: 80px; text-align: center; }
+        .footer-nav a { color: #444; text-decoration: none; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
+        .footer-nav a:hover { color: var(--gold); }
+
+        @media (max-width: 600px) {
+            .capability-list { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header-meta">TRANSMISSION_001 // SECTOR_ALPHA // WRITING</div>
+    <div class="meta-tag">SECTOR_ALPHA // ARCHITECTURAL_RECONSTRUCTION</div>
     
-    <h1>THE SIGNAL</h1>
-    <div class="subtitle">"The difference between noise and a message is architecture."</div>
+    <h1>WRITING</h1>
+    <div class="subtitle">Turning corporate noise into the Lead Act signal.</div>
 
-    <div class="content-block">
-        <h3>01. THE FREQUENCY</h3>
-        <p>In Sector Alpha, we do not write to be read. We write to be felt. Your words are the frequency that cuts through the static of the marketplace. If your copy doesn't vibrate at the same level as your intent, it is merely background noise.</p>
+    <div class="service-section">
+        <h2>Content Alchemy</h2>
+        <p>
+            We don't just "write." We take your existing, dormant assets—outdated corporate profiles, dry technical data, and legacy messaging—and reconstruct them. We realign the architecture of your words to match the frequency of your target audience.
+        </p>
+        <ul class="capability-list">
+            <li>EMAIL CAMPAIGN ARCHITECTURE</li>
+            <li>LARGE-SCALE SCRIPTING</li>
+            <li>MICRO-CONVERSION SCRIPTS</li>
+            <li>AUTOBIOGRAPHIES</li>
+            <li>WIKIPEDIA AUTHORING</li>
+            <li>INSTITUTIONAL VERIFICATION</li>
+        </ul>
     </div>
 
-    <div class="content-block">
-        <h3>02. THE STRUCTURE</h3>
-        <p>A Lead Act script follows a specific geometry. You must build the tension before you provide the warmth. Like the Fire, your writing must first lighten the path so they may see, then provide the heat that drives them to act.</p>
+    <div class="service-section">
+        <h2>The Range</h2>
+        <p>
+            From the intimate narrative of an autobiography to the cold, authoritative precision required for Wikipedia and institutional documentation, Sector Alpha masters the full spectrum of the written signal.
+        </p>
     </div>
 
-    <div class="blueprint-box">
-        <h3>ALPHA BLUEPRINT: THE 4.2Hz COPYWRITING METHOD</h3>
-        <p style="font-size: 0.8rem; font-family: 'Courier New', monospace;">FILE: Alpha_Blueprint_v1.pdf<br>SIZE: 1.2MB<br>STATUS: ENCRYPTED</p>
-        <a href="#" class="download-btn">Download Blueprint</a>
+    <div class="alchemy-box">
+        <h3>INITIATE RECONSTRUCTION</h3>
+        <p>Have an existing project or a body of work that lacks the necessary heat? Send us your current content. We will analyze the architecture and provide a reconstruction blueprint.</p>
+        <a href="contact.html" class="cta-btn">Submit Project for Review</a>
     </div>
 
-    <div class="back-nav">
+    <div class="footer-nav">
         <a href="index.html">← RETURN TO CORE ARCHIVE</a>
     </div>
 </div>
