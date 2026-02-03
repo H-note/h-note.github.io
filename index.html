@@ -20,7 +20,6 @@
             text-shadow: 0 0 10px rgba(240, 215, 140, 0.3);
         }
 
-        /* Architect Image */
         .architect-wrapper {
             border: 2px solid var(--gold-deep); padding: 8px; 
             background: #000; display: inline-block; margin-bottom: 30px;
@@ -29,12 +28,12 @@
         #architect-pic { width: 450px; max-width: 85vw; display: block; filter: grayscale(30%); }
 
         /* Navigation */
-        .nav-pillars { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .nav-pillars { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
         
         .pillar, .dropbtn {
-            border: 1px solid var(--gold-deep); padding: 12px 20px;
+            border: 1px solid var(--gold-deep); padding: 12px 18px;
             text-decoration: none; color: var(--gold);
-            text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem;
+            text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem;
             background: black; cursor: pointer; transition: 0.3s;
         }
         .pillar:hover, .dropdown:hover .dropbtn { background: var(--gold); color: black; }
@@ -43,8 +42,8 @@
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
             display: none; position: absolute; background: #000;
-            min-width: 180px; border: 1px solid var(--gold-deep); z-index: 1;
-            bottom: 100%; left: 0; /* Pops UP so it doesn't get cut off */
+            min-width: 200px; border: 1px solid var(--gold-deep); z-index: 10;
+            bottom: 100%; left: 0;
         }
         .dropdown-content a {
             color: var(--gold); padding: 12px 16px; text-decoration: none;
@@ -82,18 +81,19 @@
 
             <a href="contact.html" class="pillar">Counseling</a>
 
-            <a href="subscribe.html" class="pillar" style="border-color: #fff; color: #fff;">Join Clubhouse</a>
+            <a href="subscribe.html" class="pillar">Join Clubhouse</a>
+
+            <a href="portal.html" class="pillar" style="border-color: white; color: white;">Student Portal</a>
         </div>
     </section>
-
-    <audio id="ambient-loop" loop><source src="loop.mp3" type="audio/mpeg"></audio>
-    <audio id="manifesto"><source src="manifesto.mp3" type="audio/mpeg"></audio>
 
     <script>
         const igniter = document.getElementById('igniter');
         igniter.addEventListener('click', function() {
-            document.getElementById('manifesto').play();
-            document.getElementById('ambient-loop').play();
+            new Audio('manifesto.mp3').play();
+            let loop = new Audio('loop.mp3');
+            loop.loop = true;
+            loop.play();
         }, { once: true });
     </script>
 </body>
