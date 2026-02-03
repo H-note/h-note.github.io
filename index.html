@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-NOTE | The Clubhouse</title>
+    <title>H-NOTE | The Archive</title>
+    
+    <meta name="description" content="H-Note Creative Solutions: The Archive for the 44,000. Infrastructure for Alpha, Beta, Delta, and Omega protocols.">
+    <meta name="author" content="The Architect | H-Note Creative Solutions">
+    <meta name="copyright" content="H-Note Creative Solutions 2026">
+    <link rel="license" href="LICENSE">
+
     <style>
         :root {
             --gold-bright: #f0d78c; 
@@ -20,17 +26,18 @@
             overflow-x: hidden;
         }
 
-        .hero { text-align: center; padding: 40px 20px; max-width: 1000px; width: 100%; }
+        .hero { text-align: center; padding: 40px 20px; max-width: 1000px; width: 100%; position: relative; }
 
-        /* Poetry Section */
+        /* The Signal Text */
         .manifesto-text { max-width: 700px; margin: 0 auto 50px auto; }
         .poetry {
-            font-style: italic; color: var(--gold-bright);
-            line-height: 1.8; letter-spacing: 1px; font-size: 1.1rem;
+            font-style: normal; color: var(--gold-bright);
+            line-height: 1.6; letter-spacing: 4px; font-size: 1.3rem;
+            text-transform: uppercase;
             margin-bottom: 20px; text-shadow: 0 0 10px rgba(240, 215, 140, 0.2);
         }
         .divider { height: 1px; width: 100px; background: var(--gold-deep); margin: 20px auto; }
-        .about-text { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #888; }
+        .about-text { font-size: 0.75rem; letter-spacing: 5px; text-transform: uppercase; color: #888; font-weight: bold; }
 
         /* Architect Image */
         .architect-wrapper {
@@ -38,8 +45,8 @@
             border: 3px solid var(--gold-deep); padding: 10px; background: #000;
             transition: 0.8s; cursor: pointer; margin-bottom: 40px;
         }
-        .architect-wrapper:hover { box-shadow: 0 0 50px rgba(212, 175, 55, 0.3); border-color: var(--gold-bright); }
-        #architect-pic { width: 550px; max-width: 90vw; display: block; filter: grayscale(20%); }
+        .architect-wrapper:hover { box-shadow: 0 0 60px rgba(212, 175, 55, 0.4); border-color: var(--gold-bright); }
+        #architect-pic { width: 550px; max-width: 90vw; display: block; filter: grayscale(10%); }
 
         .scan-line {
             position: absolute; top: 0; left: 0; width: 100%; height: 4px;
@@ -62,9 +69,9 @@
         /* Dropdowns */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
-            display: none; position: absolute; background: rgba(10, 10, 10, 0.95);
+            display: none; position: absolute; background: rgba(10, 10, 10, 0.98);
             min-width: 220px; border: 1px solid var(--gold-deep); z-index: 100;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             left: 50%; transform: translateX(-50%);
         }
         .dropdown-content a {
@@ -74,6 +81,13 @@
         }
         .dropdown-content a:hover { background: var(--gold-deep); color: black; }
         .dropdown:hover .dropdown-content { display: block; }
+
+        /* Subtle Legal Footer */
+        .footer-legal {
+            position: fixed; bottom: 15px; width: 100%; text-align: center;
+            font-size: 0.55rem; color: rgba(176, 141, 50, 0.2);
+            letter-spacing: 2px; text-transform: uppercase; pointer-events: none;
+        }
 
         @media (max-width: 768px) {
             .nav-pillars { flex-direction: column; align-items: center; }
@@ -87,16 +101,12 @@
     <section class="hero">
         <div class="manifesto-text">
             <p class="poetry">
-                "I fear not this wonderful thing,<br>
-                Which lightens my path so that i may see,<br>
-                It's beauty is it's strength and it's wisdom is clean<br>
-                But it's frightened by so many that it's beauty is unseen,<br>
-                So tonight i give thanks in hopes that it might<br>
-                Give warmth to my body and give sight to my eyes...<br>
-                What am i? <strong>I am Fire.</strong>"
+                BUSINESS IS A SHOW.<br>
+                IF YOU AREN'T THE LEAD ACT,<br>
+                YOU'RE JUST BACKGROUND NOISE.
             </p>
             <div class="divider"></div>
-            <p class="about-text">The Clubhouse | Infrastructure for the 44,000</p>
+            <p class="about-text">H-NOTE CREATIVE SOLUTIONS | WAKE THE HELL UP.</p>
         </div>
 
         <div class="architect-wrapper" id="igniter">
@@ -106,33 +116,38 @@
         
         <div class="nav-pillars">
             <div class="dropdown">
-                <div class="pillar">Services ▾</div>
+                <div class="pillar">Sectors ▾</div>
                 <div class="dropdown-content">
-                    <a href="Copywriting.html">Copywriting</a>
-                    <a href="WebDesign.html">Web Design</a>
-                    <a href="Marketing.html">Marketing & Ad Creation</a>
+                    <a href="alpha.html">Writing (Alpha)</a>
+                    <a href="beta.html">Marketing (Beta)</a>
+                    <a href="delta.html">Dance (Delta)</a>
+                    <a href="omega.html">Music (Omega)</a>
                 </div>
             </div>
 
-            <a href="Counseling.html" class="pillar">Counseling</a>
+            <a href="gamma.html" class="pillar">Assessment (Gamma)</a>
 
             <div class="dropdown">
-                <div class="pillar">ClubHouse ▾</div>
+                <div class="pillar">The Vault ▾</div>
                 <div class="dropdown-content">
-                    <a href="Portal.html">Login</a>
-                    <a href="Subscribe.html">Subscribe</a>
+                    <a href="portal.html">Login</a>
+                    <a href="delta_010.html">Subscribe (Delta_010)</a>
                 </div>
             </div>
 
             <div class="dropdown">
-                <div class="pillar">Student ▾</div>
+                <div class="pillar">Archive Access ▾</div>
                 <div class="dropdown-content">
-                    <a href="Classroom.html">Classroom Login</a>
-                    <a href="Appointment.html">Set Appointment</a>
+                    <a href="classroom.html">Classroom</a>
+                    <a href="appointment.html">Set Appointment</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <footer class="footer-legal">
+        &copy; 2026 H-NOTE CREATIVE SOLUTIONS. MIT LICENSE APPLIED.
+    </footer>
 
     <audio id="ambient-loop" loop preload="auto">
         <source src="loop.mp3" type="audio/mpeg">
@@ -148,30 +163,15 @@
         const igniter = document.getElementById('igniter');
 
         igniter.addEventListener('click', function() {
-            // Start the visual scan
             igniter.classList.add('active-scan');
             
-            // Set voice to full, loop to 0
+            // Audio Balancing
             manifesto.volume = 1.0;
-            loop.volume = 0;
+            loop.volume = 0.15; 
             
-            // Trigger both
-            manifesto.play().catch(e => console.log("Audio blocked. Ensure files are named loop.mp3 and manifesto.mp3"));
+            manifesto.play();
             loop.play();
         }, { once: true });
-
-        // Smoothly fade in the hum after the voice ends
-        manifesto.onended = function() {
-            let vol = 0;
-            let fade = setInterval(() => {
-                if (vol < 0.07) { // Set to a subtle 7% volume for a mysterious feel
-                    vol += 0.005;
-                    loop.volume = vol;
-                } else {
-                    clearInterval(fade);
-                }
-            }, 200);
-        };
     </script>
 </body>
 </html>
