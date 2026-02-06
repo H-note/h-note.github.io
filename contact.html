@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H-NOTE | INTAKE BRIEFING</title>
     <style>
-        :root { --gold: #f0d78c; --bg: #050505; --gray: #1a1a1a; }
+        :root { --gold: #f0d78c; --bg: #050505; }
         body { 
             margin: 0; background: var(--bg); color: white; 
             font-family: 'Courier New', monospace; display: flex; 
@@ -13,39 +13,44 @@
         }
 
         .contact-container {
-            width: 90%; max-width: 900px; background: #000;
-            border: 1px solid #222; padding: 40px; position: relative;
+            width: 95%; max-width: 850px; background: #000;
+            border: 1px solid #222; padding: 40px; box-sizing: border-box;
         }
 
-        /* HEADER */
         .header { border-bottom: 1px solid var(--gold); margin-bottom: 30px; padding-bottom: 10px; }
         .header h1 { font-size: 1.2rem; letter-spacing: 5px; color: var(--gold); margin: 0; }
-        .header p { font-size: 0.7rem; color: #555; text-transform: uppercase; }
+        .header p { font-size: 0.7rem; color: #555; text-transform: uppercase; margin-top: 5px; }
 
-        /* SERVICE SELECTOR TILES */
+        /* SERVICE SELECTOR GRID */
         .service-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px; margin-bottom: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px; margin-bottom: 25px;
         }
         .service-option {
             border: 1px solid #333; padding: 15px; text-align: center;
-            cursor: pointer; transition: 0.3s; font-size: 0.7rem; color: #777;
+            cursor: pointer; transition: 0.3s; font-size: 0.7rem; color: #888;
+            text-transform: uppercase; letter-spacing: 1px;
         }
         .service-option:hover, .service-option.active {
             border-color: var(--gold); color: var(--gold); background: rgba(240, 215, 140, 0.05);
         }
 
-        /* ELITE COUNSELING TILE */
-        .counseling-elite {
-            grid-column: 1 / -1; border: 2px solid var(--gold);
-            background: linear-gradient(45deg, #111, #000); color: var(--gold) !important;
-            font-weight: bold; font-size: 0.9rem !important;
+        /* PRIORITY SECTION: COUNSELING & ASSESSMENT */
+        .priority-section {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px;
         }
+        .priority-btn {
+            border: 2px solid var(--gold); padding: 20px; text-align: center;
+            cursor: pointer; transition: 0.3s; font-weight: bold; background: #111;
+        }
+        .priority-btn span { display: block; font-size: 0.6rem; color: #777; margin-bottom: 5px; }
+        .priority-btn.active { background: var(--gold); color: black; }
+        .priority-btn.active span { color: #444; }
 
-        /* FORM FIELDS */
+        /* FORM STYLING */
         .form-group { margin-bottom: 20px; }
         label { display: block; font-size: 0.6rem; color: #555; margin-bottom: 8px; text-transform: uppercase; }
-        input, textarea, select {
+        input, textarea {
             width: 100%; background: #0a0a0a; border: 1px solid #333;
             padding: 12px; color: white; font-family: inherit; box-sizing: border-box;
         }
@@ -58,64 +63,72 @@
         }
         .submit-btn:hover { background: white; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
 
-        .back-home {
-            display: block; text-align: center; margin-top: 20px;
-            color: #444; text-decoration: none; font-size: 0.7rem;
-        }
+        .back-home { display: block; text-align: center; margin-top: 20px; color: #444; text-decoration: none; font-size: 0.7rem; }
     </style>
 </head>
 <body>
 
     <div class="contact-container">
         <div class="header">
-            <h1>TRANSMISSION_INPUT</h1>
-            <p>Identify your sector and state your intent.</p>
+            <h1>INITIATE_TRANSMISSION</h1>
+            <p>Select your objective and provide your credentials.</p>
         </div>
 
-        <form action="https://formspree.io/f/YOUR_ID" method="POST"> <label>1. Select Primary Sector</label>
+        <form action="https://formspree.io/f/YOUR_ID" method="POST">
+            
+            <label>Choose Service Sector</label>
             <div class="service-grid">
-                <div class="service-option" onclick="selectSector('Copywriting')">Copywriting</div>
-                <div class="service-option" onclick="selectSector('Web Design')">Web Design</div>
-                <div class="service-option" onclick="selectSector('Content Creation')">Content</div>
-                <div class="service-option" onclick="selectSector('Advertising')">Advertising</div>
-                <div class="service-option counseling-elite" onclick="selectSector('Private Counseling')">
-                    PRIORITY: PRIVATE COUNSELING [1-ON-1]
+                <div class="service-option" onclick="selectSector(this, 'Copywriting')">Copywriting</div>
+                <div class="service-option" onclick="selectSector(this, 'Web Design')">Web Design</div>
+                <div class="service-option" onclick="selectSector(this, 'Ad Creation')">Ad Creation</div>
+                <div class="service-option" onclick="selectSector(this, 'Counseling')">Counseling</div>
+                <div class="service-option" onclick="selectSector(this, 'Classes')">Classes</div>
+            </div>
+
+            <label>Executive Priority</label>
+            <div class="priority-section">
+                <div class="priority-btn" onclick="selectSector(this, 'Private Counseling 1-1')">
+                    <span>SECTOR_01</span> PRIVATE COUNSELING 1-1
+                </div>
+                <div class="priority-btn" onclick="selectSector(this, 'Intake Assessment')">
+                    <span>PHASE_01</span> INTAKE ASSESSMENT
                 </div>
             </div>
 
-            <input type="hidden" name="sector" id="selected-sector" required>
+            <input type="hidden" name="intent" id="selected-intent" required>
 
             <div class="form-group">
-                <label>Identify (Name/Alias)</label>
-                <input type="text" name="name" required placeholder="User_44000">
+                <label>User Identity (Name/Alias)</label>
+                <input type="text" name="name" required placeholder="IDENTIFY...">
             </div>
 
             <div class="form-group">
                 <label>Return Frequency (Email)</label>
-                <input type="email" name="email" required placeholder="name@signal.com">
+                <input type="email" name="email" required placeholder="EMAIL_SIGNAL...">
             </div>
 
             <div class="form-group">
-                <label>The Message</label>
-                <textarea name="message" rows="5" required placeholder="State the nature of your request..."></textarea>
+                <label>Nature of Request</label>
+                <textarea name="message" rows="4" required placeholder="STATE YOUR PURPOSE..."></textarea>
             </div>
 
-            <button type="submit" class="submit-btn">SEND TRANSMISSION</button>
+            <button type="submit" class="submit-btn">SEND TO THE ARCHITECT</button>
         </form>
 
-        <a href="index.html" class="back-home">ABORT_AND_RETURN_TO_BASE</a>
+        <a href="index.html" class="back-home">RETURN TO BASE</a>
     </div>
 
     <script>
-        function selectSector(sector) {
-            // Update hidden input
-            document.getElementById('selected-sector').value = sector;
+        function selectSector(element, value) {
+            // Set the value in the hidden input
+            document.getElementById('selected-intent').value = value;
             
-            // Visual feedback
-            const options = document.querySelectorAll('.service-option');
-            options.forEach(opt => opt.classList.remove('active'));
+            // Remove active class from ALL options and priority buttons
+            const allOptions = document.querySelectorAll('.service-option, .priority-btn');
+            allOptions.forEach(opt => opt.classList.remove('active'));
             
-            event.target.classList.add('active');
+            // Add active class to the one clicked
+            element.classList.add('active');
         }
     </script>
 
