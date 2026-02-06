@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H-NOTE | THE LEAD ACT</title>
     <style>
-        :root { --gold: #f0d78c; --bg: #050505; }
+        :root { 
+            --gold: #f0d78c; 
+            --black: #000000;
+            --white: #ffffff;
+        }
         
         body { 
-            margin: 0; padding: 0; background: var(--bg); color: white; 
+            margin: 0; padding: 0; background: var(--black); color: var(--white); 
             font-family: 'Times New Roman', serif; overflow-x: hidden;
             display: flex; flex-direction: column; align-items: center;
         }
@@ -17,73 +21,76 @@
         .top-nav {
             position: fixed; top: 0; width: 100%; display: flex; 
             justify-content: space-between; padding: 25px 40px; z-index: 1000;
-            box-sizing: border-box; background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+            box-sizing: border-box; background: linear-gradient(to bottom, rgba(0,0,0,1), transparent);
         }
         .gate-link {
             text-decoration: none; font-family: 'Courier New', monospace;
-            font-size: 0.7rem; letter-spacing: 2px; transition: 0.4s;
+            font-size: 0.85rem; letter-spacing: 2px; transition: 0.4s;
+            font-weight: bold;
         }
-        .portal-btn { color: #555; border: 1px solid #222; padding: 8px 15px; }
-        .portal-btn:hover { color: white; border-color: white; }
+        .portal-btn { color: var(--white); border: 1px solid var(--gold); padding: 8px 15px; }
+        .portal-btn:hover { background: var(--gold); color: var(--black); }
         
         .sub-btn { 
-            color: #000; background: var(--gold); padding: 8px 20px; font-weight: bold;
-            box-shadow: 0 0 15px rgba(240, 215, 140, 0.2); margin-left: 20px;
+            color: var(--black); background: var(--gold); padding: 8px 20px; font-weight: bold;
+            box-shadow: 0 0 20px rgba(240, 215, 140, 0.5); margin-left: 20px;
         }
 
         /* HERO & FIRE RIDDLE */
         .hero { 
             min-height: 100vh; width: 100%; display: flex; flex-direction: column; 
             justify-content: center; align-items: center; text-align: center; 
-            padding: 100px 20px; box-sizing: border-box; 
+            padding: 120px 20px; box-sizing: border-box; 
         }
-        .manifesto-text { max-width: 750px; margin-bottom: 40px; }
+        .manifesto-text { max-width: 800px; margin-bottom: 50px; }
         .poetry {
-            font-style: italic; font-size: 1.35rem; color: var(--gold);
+            font-style: italic; font-size: 1.5rem; color: var(--gold);
             line-height: 1.8; letter-spacing: 1px;
-            text-shadow: 0 0 15px rgba(240, 215, 140, 0.2);
+            text-shadow: 2px 2px 5px rgba(0,0,0,1);
         }
         .riddle-answer {
-            display: block; margin-top: 25px; font-weight: bold; 
-            letter-spacing: 10px; text-transform: uppercase; font-size: 1.6rem;
+            display: block; margin-top: 30px; font-weight: bold; 
+            letter-spacing: 12px; text-transform: uppercase; font-size: 2rem;
+            color: var(--gold);
         }
 
-        /* THE ARCHITECT (Triggers Audio) */
+        /* THE ARCHITECT (IMAGE) */
         .architect-wrapper {
-            position: relative; width: 260px; height: 260px;
-            border-radius: 50%; overflow: hidden; border: 2px solid #1a1a1a;
-            cursor: pointer; transition: 0.6s; margin-bottom: 50px;
+            position: relative; width: 280px; height: 280px;
+            border-radius: 50%; overflow: hidden; border: 3px solid var(--gold);
+            cursor: pointer; transition: 0.6s; margin-bottom: 60px;
         }
-        .architect-wrapper:hover { border-color: var(--gold); box-shadow: 0 0 60px rgba(176, 141, 50, 0.3); }
+        .architect-wrapper:hover { box-shadow: 0 0 80px rgba(240, 215, 140, 0.4); }
         .architect-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.6s; }
         .architect-wrapper:hover img { filter: grayscale(0%); }
 
-        /* SERVICE PILLARS */
+        /* SERVICE PILLARS - HIGH CONTRAST */
         .nav-pillars {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 60px;
-            max-width: 600px; margin-bottom: 60px;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 80px;
+            max-width: 700px; margin-bottom: 80px;
         }
         .pillar {
-            text-decoration: none; color: #666; font-family: 'Courier New', monospace;
-            font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
-            transition: 0.4s;
+            text-decoration: none; color: var(--white); font-family: 'Courier New', monospace;
+            font-size: 1rem; letter-spacing: 4px; text-transform: uppercase;
+            transition: 0.4s; font-weight: bold;
         }
-        .pillar:hover { color: var(--gold); letter-spacing: 5px; }
+        .pillar:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
 
-        /* CONTACT FOOTER ARCHIVE */
+        /* FOOTER CONTACT INFO */
         .footer-archive {
-            border-top: 1px solid #111; width: 100%; max-width: 800px;
-            padding: 40px 20px; text-align: center; font-family: 'Courier New', monospace;
+            border-top: 2px solid var(--gold); width: 100%; max-width: 900px;
+            padding: 50px 20px; text-align: center; font-family: 'Courier New', monospace;
         }
-        .contact-info { font-size: 0.75rem; color: #555; line-height: 2; letter-spacing: 1px; }
-        .contact-info strong { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+        .contact-info { font-size: 1rem; color: var(--white); line-height: 2.2; letter-spacing: 2px; }
+        .contact-info strong { color: var(--gold); font-size: 1.3rem; letter-spacing: 4px; }
 
+        /* BACKGROUND SIGNAL EFFECT */
         .vibration {
             position: fixed; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(176,141,50,0.04) 0%, transparent 70%);
-            z-index: -1; animation: pulse 10s infinite;
+            background: radial-gradient(circle, rgba(240,215,140,0.08) 0%, transparent 70%);
+            z-index: -1; animation: pulse 8s infinite;
         }
-        @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+        @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
     </style>
 </head>
 <body>
@@ -94,7 +101,7 @@
         <a href="portal-login.html" class="gate-link portal-btn">STUDENT_PORTAL</a>
         <div style="display: flex; align-items: center;">
             <a href="clubhouse-login.html" class="gate-link" style="color:var(--gold)">CLUBHOUSE_LOGIN</a>
-            <a href="clubhouse-subscribe.html" class="gate-link sub-btn">JOIN</a>
+            <a href="clubhouse-subscribe.html" class="gate-link sub-btn">JOIN_CLUBHOUSE</a>
         </div>
     </nav>
 
@@ -138,7 +145,7 @@
             document.getElementById('voiceover').play();
             const theta = document.getElementById('theta-signal');
             theta.play();
-            theta.volume = 0.25;
+            theta.volume = 0.3; // Slightly louder theta for better immersion
             document.getElementById('architect-pic').style.filter = "grayscale(0%)";
         }
     </script>
