@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H-Note | The Vault Submission Terminal</title>
     <style>
         body {
@@ -29,10 +30,12 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: #666;
         }
         h2 {
             font-weight: normal;
             letter-spacing: 3px;
+            text-transform: uppercase;
         }
         .upload-area {
             border: 2px dashed #333;
@@ -41,6 +44,7 @@
             margin: 20px 0;
             transition: 0.3s;
             cursor: pointer;
+            display: block; /* Ensures the label acts as a big button */
         }
         .upload-area:hover {
             border-color: #d4af37;
@@ -59,11 +63,22 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .btn-submit:hover {
+            background: #fff;
+            box-shadow: 0 0 20px #fff;
         }
         .log-output {
             margin-top: 20px;
             font-size: 0.7rem;
             color: #666;
+            line-height: 1.5;
+        }
+        .file-list {
+            margin-top: 10px;
+            color: #fff;
+            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -72,11 +87,12 @@
 <div class="terminal-container">
     <div class="status-bar">H-Note System v1.0 // Frequency Check: 4.2Hz // Status: Secure</div>
     <h2>Stage 3: Manifestation Submission</h2>
-    <p>Upload your Business Treatment, Creative Assets, or Marketing Blueprints for resonance validation.</p>
+    <p style="color: #888;">Upload your Business Treatment, Creative Assets, or Marketing Blueprints for resonance validation.</p>
     
     <label for="file-upload" class="upload-area" id="drop-zone">
-        CLICK OR DRAG FILES HERE TO ENTER THE VAULT
-        <input type="file" id="file-upload" class="file-input" multiple>
+        <span id="upload-text">CLICK OR DRAG FILES HERE TO ENTER THE VAULT</span>
+        <div id="file-name-display" class="file-list"></div>
+        <input type="file" id="file-upload" class="file-input" multiple onchange="showFiles()">
     </label>
 
     <button class="btn-submit" onclick="submitToVault()">Initiate Validation</button>
@@ -87,15 +103,36 @@
 </div>
 
 <script>
-   function submitToVault() {
+    // Show the name of the file after it's picked
+    function showFiles() {
+        const input = document.getElementById('file-upload');
+        const display = document.getElementById('file-name-display');
+        const text = document.getElementById('upload-text');
+        
+        if (input.files.length > 0) {
+            text.innerHTML = "FILES ENCRYPTED & READY:";
+            display.innerHTML = "";
+            for (let i = 0; i < input.files.length; i++) {
+                display.innerHTML += "> " + input.files[i].name + "<br>";
+            }
+        }
+    }
+
+    function submitToVault() {
         const log = document.getElementById('log');
-        log.innerHTML = "> Establishing connection...<br>> Checking file resonance...";
+        const input = document.getElementById('file-upload');
+
+        if (input.files.length === 0) {
+            log.innerHTML = "<span style='color:red'>> ERROR: NO PAYLOAD DETECTED.</span>";
+            return;
+        }
+
+        log.innerHTML = "> Establishing secure connection...<br>> Checking file resonance...<br>> Manifesting data packets...";
         
         setTimeout(() => {
-            // This line sends them to the Success Page after 3 seconds
+            // Redirects to your success page
             window.location.href = "ManifestationComplete.html";
         }, 3000);
-    }
     }
 </script>
 
