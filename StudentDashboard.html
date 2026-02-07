@@ -2,45 +2,172 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H-NOTE | MY DASHBOARD</title>
     <style>
-        :root { --gold: #f0d78c; }
-        body { background: #000; color: white; font-family: 'Times New Roman', serif; margin: 0; }
-        .header { border-bottom: 1px solid #b08d32; padding: 20px; text-align: center; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .module { border: 1px solid #222; padding: 25px; transition: 0.3s; }
-        .module:hover { border-color: var(--gold); }
-        .module h3 { color: var(--gold); margin-top: 0; letter-spacing: 3px; }
-        .module p { color: #888; font-size: 0.9rem; line-height: 1.6; }
-        .action-link { color: white; text-decoration: none; border-bottom: 1px solid var(--gold); font-size: 0.8rem; }
+        :root { 
+            --gold: #f0d78c; 
+            --black: #000000;
+            --dark-grey: #111111;
+        }
+        
+        body { 
+            background: var(--black); 
+            color: white; 
+            font-family: 'Times New Roman', serif; 
+            margin: 0; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header { 
+            border-bottom: 1px solid rgba(240, 215, 140, 0.3); 
+            padding: 40px 20px; 
+            text-align: center; 
+            background: linear-gradient(to bottom, #0a0a0a, var(--black));
+        }
+        
+        .header h2 { 
+            letter-spacing: 10px; 
+            text-transform: uppercase; 
+            margin: 0; 
+            color: var(--gold);
+        }
+
+        /* GRID CONTAINER */
+        .container { 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px; 
+            flex-grow: 1;
+        }
+
+        /* MODULE CARDS */
+        .module { 
+            background: var(--dark-grey);
+            border: 1px solid #222; 
+            padding: 30px; 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .module:hover { 
+            border-color: var(--gold); 
+            box-shadow: 0 0 20px rgba(240, 215, 140, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .module h3 { 
+            color: var(--gold); 
+            margin-top: 0; 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+        
+        .module p { 
+            color: #aaa; 
+            font-size: 0.95rem; 
+            line-height: 1.6; 
+            margin-bottom: 25px;
+        }
+
+        /* LINKS */
+        .action-link { 
+            color: var(--gold); 
+            text-decoration: none; 
+            border: 1px solid var(--gold); 
+            font-size: 0.75rem; 
+            padding: 10px 15px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .action-link:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .logout-gate {
+            text-align: center;
+            padding: 40px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .logout-gate a {
+            color: #555;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .logout-gate a:hover { color: var(--gold); }
+
+        /* RESPONSIVE FIX FOR PHONES */
+        @media (max-width: 768px) {
+            .container { 
+                grid-template-columns: 1fr; 
+                margin: 20px auto;
+            }
+            .header h2 { font-size: 1.2rem; letter-spacing: 5px; }
+        }
     </style>
 </head>
 <body>
+
     <div class="header">
-        <h2 style="letter-spacing: 10px;">STUDENT_DASHBOARD</h2>
-        <p style="font-size: 0.7rem; color: #555;">WELCOME BACK TO THE LEAD ACT.</p>
+        <h2>STUDENT_DASHBOARD</h2>
+        <p style="font-size: 0.7rem; color: #555; letter-spacing: 2px; margin-top: 10px;">AUTHORIZED ACCESS ONLY // THE LEAD ACT</p>
     </div>
+
     <div class="container">
         <div class="module">
-            <h3>CURRENT SECTOR</h3>
-            <p>You are currently enrolled in <strong>Sector Alpha (Writing)</strong>. Your next assignment is ready for review.</p>
+            <div>
+                <h3>CURRENT SECTOR</h3>
+                <p>You are currently enrolled in <strong>Sector Alpha (Writing)</strong>. Your next assignment is ready for review.</p>
+            </div>
             <a href="#" class="action-link">ACCESS BLUEPRINTS</a>
         </div>
+
         <div class="module">
-            <h3>PRIVATE VAULT</h3>
-            <p>View restricted recordings from the Clubhouse sessions and private transmissions.</p>
+            <div>
+                <h3>PRIVATE VAULT</h3>
+                <p>View restricted recordings from the Clubhouse sessions and private transmissions.</p>
+            </div>
             <a href="#" class="action-link">OPEN VAULT</a>
         </div>
+
         <div class="module">
-            <h3>DIRECT LINE</h3>
-            <p>You have (1) unused counseling credit. Schedule your next 1-on-1 with The Architect.</p>
+            <div>
+                <h3>DIRECT LINE</h3>
+                <p>You have (1) unused counseling credit. Schedule your next 1-on-1 with The Architect.</p>
+            </div>
             <a href="contact.html" class="action-link">BOOK SESSION</a>
         </div>
+
         <div class="module">
-            <h3>PROFILE SETTINGS</h3>
-            <p>Update your credentials, payment methods, and communication frequency.</p>
+            <div>
+                <h3>PROFILE SETTINGS</h3>
+                <p>Update your credentials, payment methods, and communication frequency.</p>
+            </div>
             <a href="#" class="action-link">MANAGE ACCOUNT</a>
         </div>
     </div>
+
+    <div class="logout-gate">
+        <a href="index.html">EXIT GATES</a>
+    </div>
+
 </body>
 </html>
