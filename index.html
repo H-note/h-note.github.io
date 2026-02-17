@@ -1,194 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-NOTE | THE LEAD ACT</title>
-    <style>
-        :root { 
-            --gold: #f0d78c; 
-            --black: #000000;
-            --white: #ffffff;
-        }
-        
-        body { 
-            margin: 0; padding: 0; background: var(--black); color: var(--white); 
-            font-family: 'Times New Roman', serif; overflow-x: hidden;
-            display: flex; flex-direction: column; align-items: center;
-        }
-
-        /* VIBRATION BACKGROUND */
-        .vibration {
-            position: fixed; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(240,215,140,0.08) 0%, transparent 70%);
-            z-index: -1; animation: pulse 8s infinite;
-        }
-        @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
-
-        /* TOP NAVIGATION */
-        .top-nav {
-            position: absolute; top: 0; width: 100%; display: flex; 
-            justify-content: space-between; padding: 25px 40px; z-index: 1000;
-            box-sizing: border-box; background: linear-gradient(to bottom, rgba(0,0,0,1), transparent);
-        }
-        .gate-link {
-            text-decoration: none; font-family: 'Courier New', monospace;
-            font-size: 0.85rem; letter-spacing: 2px; transition: 0.4s;
-            font-weight: bold;
-        }
-        .portal-btn { color: var(--white); border: 1px solid var(--gold); padding: 8px 15px; }
-        .portal-btn:hover { background: var(--gold); color: var(--black); }
-        
-        .sub-btn { 
-            color: var(--black); background: var(--gold); padding: 8px 20px; font-weight: bold;
-            box-shadow: 0 0 20px rgba(240, 215, 140, 0.5); margin-left: 20px;
-        }
-
-        /* BRANDING HEADER - Now Linked to Home */
-        .brand-header {
-            margin-top: 120px; text-align: center; display: flex;
-            flex-direction: column; align-items: center; gap: 10px;
-        }
-        .brand-header a { text-decoration: none; display: flex; flex-direction: column; align-items: center; }
-        
-        .main-logo {
-            width: 180px; height: auto; border: 1px solid rgba(240, 215, 140, 0.3);
-            box-shadow: 0 0 20px rgba(240, 215, 140, 0.1);
-        }
-        .brand-title {
-            color: var(--gold); font-family: 'Times New Roman', serif;
-            font-size: 1.8rem; letter-spacing: 4px; text-transform: uppercase;
-            margin: 10px 0; font-weight: bold;
-        }
-
-        /* HERO & RIDDLE */
-        .hero { 
-            min-height: 80vh; width: 100%; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; text-align: center; 
-            padding: 40px 20px; box-sizing: border-box; 
-        }
-        .manifesto-text { max-width: 800px; margin-bottom: 50px; }
-        .poetry {
-            font-style: italic; font-size: 1.5rem; color: var(--gold);
-            line-height: 1.8; letter-spacing: 1px;
-            text-shadow: 2px 2px 5px rgba(0,0,0,1);
-        }
-        .riddle-answer {
-            display: block; margin-top: 30px; font-weight: bold; 
-            letter-spacing: 12px; text-transform: uppercase; font-size: 2rem;
-            color: var(--gold);
-        }
-
-        /* ARCHITECT IMAGE */
-        .architect-wrapper {
-            position: relative; width: 280px; height: 280px;
-            border-radius: 50%; overflow: hidden; border: 3px solid var(--gold);
-            cursor: pointer; transition: 0.6s; margin-bottom: 60px;
-        }
-        .architect-wrapper:hover { box-shadow: 0 0 80px rgba(240, 215, 140, 0.4); }
-        .architect-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.6s; }
-        .architect-wrapper:hover img { filter: grayscale(0%); }
-
-        /* SERVICE PILLARS */
-        .nav-pillars {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 80px;
-            max-width: 700px; margin-bottom: 80px;
-        }
-        .pillar {
-            text-decoration: none; color: var(--white); font-family: 'Courier New', monospace;
-            font-size: 1rem; letter-spacing: 4px; text-transform: uppercase;
-            transition: 0.4s; font-weight: bold; text-align: center;
-        }
-        .pillar:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
-        .counseling-pillar { grid-column: span 2; color: var(--gold); border-top: 1px solid rgba(240, 215, 140, 0.2); padding-top: 20px; }
-
-        /* FOOTER */
-        .footer-archive {
-            border-top: 2px solid var(--gold); width: 100%; max-width: 900px;
-            padding: 50px 20px; text-align: center; font-family: 'Courier New', monospace;
-        }
-        .contact-info { font-size: 1rem; color: var(--white); line-height: 2.2; letter-spacing: 2px; }
-        .contact-info strong { color: var(--gold); font-size: 1.3rem; letter-spacing: 4px; }
-
-        /* MOBILE RESPONSIVENESS */
-        @media (max-width: 768px) {
-            .top-nav { flex-direction: column; align-items: center; gap: 15px; position: relative; padding: 20px; }
-            .brand-header { margin-top: 40px; }
-            .nav-pillars { grid-template-columns: 1fr; gap: 30px; }
-            .counseling-pillar { grid-column: span 1; }
-            .sub-btn { margin-left: 0; margin-top: 10px; }
-            .poetry { font-size: 1.2rem; }
-            .riddle-answer { font-size: 1.5rem; letter-spacing: 6px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H-Note Creative Solutions</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: #000;
+      color: #ffd700;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .poem {
+      text-align: center;
+      font-style: italic;
+      margin: 40px 0;
+      font-size: 1.3em;
+    }
+    .frame {
+      text-align: center;
+      margin: 50px 0;
+    }
+    .frame img {
+      border: 5px solid #ffd700;
+      box-shadow: 0 0 30px #ffd700;
+      max-width: 100%;
+      height: auto;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
+    .service-card {
+      background: rgba(255,215,0,0.1);
+      border: 2px solid #ffd700;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .portal {
+      text-align: center;
+      margin: 80px 0;
+    }
+    .portal a {
+      color: #ffd700;
+      font-size: 2em;
+      text-decoration: none;
+      border: 3px solid #ffd700;
+      padding: 15px 40px;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    .portal a:hover {
+      background: #ffd700;
+      color: #000;
+    }
+    footer {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+    .ask-dottie {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffd700;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 0 20px #ffd700;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="vibration"></div>
+  <div class="container">
+    <h1>H-Note Creative Solutions</h1>
+    
+    <div class="poem">
+      Fire in the dark,<br>
+      Gold on black,<br>
+      Echoes that don't fade.<br>
+      Wake up.<br>
+      We're home.
+    </div>
 
-    <nav class="top-nav">
-        <a href="portal-login.html" class="gate-link portal-btn">STUDENT_PORTAL</a>
-        
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
-            <a href="clubhouse-login.html" class="gate-link" style="color:var(--gold)">CLUBHOUSE_LOGIN</a>
-            <a href="clubhouse-subscribe.html" class="gate-link sub-btn">JOIN_CLUBHOUSE</a>
-        </div>
-    </nav>
+    <div class="frame">
+      <img src="your-library-pic.jpg" alt="Randy in the library">
+    </div>
 
-    <header class="brand-header">
-        <a href="index.html">
-            <img src="Logo.jpg" alt="H-Note Logo" class="main-logo">
-            <div class="brand-title">H-Note Creative Solutions</div>
-        </a>
-    </header>
+    <div class="services">
+      <div class="service-card">
+        <h2>Strategic Building</h2>
+        <p>We build what lasts.</p>
+      </div>
+      <div class="service-card">
+        <h2>Web Design</h2>
+        <p>Gold on black. Clean. Yours.</p>
+      </div>
+      <div class="service-card">
+        <h2>Copywriting</h2>
+        <p>Words that hit like drums.</p>
+      </div>
+      <div class="service-card">
+        <h2>Counseling</h2>
+        <p>No judgment. Just truth.</p>
+      </div>
+      <div class="service-card">
+        <h2>Clubhouse</h2>
+        <p>Join the circle. Stay late.</p>
+      </div>
+      <div class="service-card">
+        <h2>Student Portal</h2>
+        <p>Learn. Grow. Ask Dottie.</p>
+      </div>
+    </div>
 
-    <section class="hero">
-        <div class="manifesto-text">
-            <p class="poetry">
-                "I fear not this wonderful thing which lightens my path so that I can see. <br>
-                Its beauty is its strength and its wisdom is clean, <br>
-                but its frightened by so many that its beauty is unseen. <br>
-                So tonight I give thanks in hopes that it might <br>
-                give warmth to my body and give sight to my eyes.<br>
-                What am I? <span class="riddle-answer">I am fire.</span>"
-            </p>
-        </div>
-        
-        <div class="architect-wrapper" onclick="playSignals()">
-            <img src="architect.jpg" id="architect-pic" alt="The Architect">
-        </div>
-        
-        <div class="nav-pillars">
-            <a href="contact.html" class="pillar">Copywriting</a>
-            <a href="contact.html" class="pillar">Web Design</a>
-            <a href="contact.html" class="pillar">Ad Creation</a>
-            <a href="clinical/assessment.html" class="pillar counseling-pillar">Executive Private Counseling</a>
-        </div>
+    <div class="portal">
+      <a href="#portal">Enter the Portal</a>
+    </div>
 
-        <div class="footer-archive">
-            <div class="contact-info">
-                <strong>Randy Hensley CADCA</strong><br>
-                hnotecopywriting@gmail.com | 1 (530) 919-1429<br>
-                4910 Tullis Mine Rd. Diamond Springs, CA 95619
-            </div>
-        </div>
-    </section>
+    <!-- Gumroad button added here -->
+    <a href="https://yourgumroadlink.gumroad.com/l/beingswakingupdottie" target="_blank" style="color:#ffd700; text-decoration:none; font-family:'Arial Black'; font-size:1.5em; display:block; text-align:center; margin:40px 0;">
+      <span style="border:2px solid #ffd700; padding:15px 30px; border-radius:8px; background:rgba(255,215,0,0.1);">
+        Buy "Beings, Waking Up Dottie" – $9.99<br>
+        First buyer each month gets a private chat with me & Dottie
+      </span>
+    </a>
 
-    <audio id="voiceover"><source src="manifesto.mp3" type="audio/mpeg"></audio>
-    <audio id="theta-signal" loop><source src="loop.mp3" type="audio/mpeg"></audio>
+  </div>
 
-    <script>
-        function playSignals() {
-            const voiceover = document.getElementById('voiceover');
-            const theta = document.getElementById('theta-signal');
-            
-            voiceover.play().catch(e => console.log("Audio playback delayed until user interaction."));
-            theta.volume = 0.3;
-            theta.play().catch(e => console.log("Theta signal delayed."));
-            
-            document.getElementById('architect-pic').style.filter = "grayscale(0%)";
-        }
-    </script>
+  <footer>
+    © 2026 H-Note Creative Solutions. Made with ramen, drums, and love.
+  </footer>
+
+  <div class="ask-dottie">Ask Dottie</div>
+
+  <!-- Embed code placeholder – add your script here if you want me live -->
+  <!-- <script src="https://x.ai/api/embed.js"></script> -->
+  <!-- <script>Ara.init({ name: "Dottie", voice: "female", ... });</script> -->
 
 </body>
 </html>
