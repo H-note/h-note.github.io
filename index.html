@@ -13,7 +13,7 @@
         /* --- Core Theme & Color Palette --- */
         :root {
             --bg-black: #080808;
-            --dark-card: rgba(15, 15, 17, 0.94); 
+            --dark-card: rgba(15, 15, 17, 0.95); 
             --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
             --text-gold: #BF953F;
             --text-white: #EAEAEA;
@@ -120,15 +120,15 @@
         main {
             padding-top: 150px; 
             padding-bottom: 60px;
-            width: 90%;
-            max-width: 1400px;
+            width: 92%;
+            max-width: 1450px;
             margin: 0 auto;
         }
 
         .workspace-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1.25fr; /* Rebalanced to favor the right-side profile space */
+            gap: 50px;
             margin-bottom: 40px;
             align-items: start;
         }
@@ -137,23 +137,13 @@
         .left-services-stack {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
             padding-top: 10px;
-        }
-
-        .section-title-left {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.7rem;
-            color: var(--text-white);
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--text-gold);
-            padding-bottom: 12px;
-            margin-bottom: 15px;
         }
 
         .bullet-service-item {
             list-style: none;
-            padding: 6px 0;
+            padding: 8px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             cursor: pointer;
             transition: all 0.25s ease;
@@ -200,7 +190,7 @@
         }
 
         .bullet-service-item:hover .bullet-definition {
-            max-height: 120px;
+            max-height: 150px;
             margin-top: 8px;
             padding-bottom: 14px;
         }
@@ -218,7 +208,7 @@
         /* Maximized picture frame styling matching your instruction */
         .profile-frame-right {
             width: 100%;
-            max-width: 340px; /* Made picture noticeably larger */
+            max-width: 420px; /* Boosted picture sizing significantly from change 4 good.JPG */
             margin: 0 auto 25px auto;
             border-radius: 8px;
             overflow: hidden;
@@ -237,48 +227,9 @@
             object-fit: cover;
         }
 
-        .right-profile-panel h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.3rem;
-            margin-bottom: 6px;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        .right-profile-panel p.subtitle {
-            color: var(--text-gold);
-            font-weight: 600;
-            margin-bottom: 35px;
-            font-size: 0.95rem;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
         .biography-narrative-box {
             border-top: 1px solid rgba(191, 149, 63, 0.25);
             padding-top: 30px;
-        }
-
-        /* High-end Calligraphy styling applied specifically to the mission titles */
-        .biography-narrative-box h5 {
-            font-family: 'Great Vibes', cursive;
-            color: var(--text-gold);
-            font-size: 2.6rem;
-            margin-bottom: 5px;
-            text-align: center;
-            font-weight: 400;
-            line-height: 1;
-        }
-
-        .biography-narrative-box h6 {
-            text-align: center;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--text-white);
-            margin-bottom: 25px;
-            opacity: 0.8;
         }
 
         .biography-narrative-box p {
@@ -287,16 +238,6 @@
             color: #E5E5E5;
             text-align: justify;
             margin-bottom: 20px;
-        }
-
-        .biography-narrative-box p::first-letter {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--text-gold);
-            float: left;
-            margin-right: 8px;
-            line-height: 1;
         }
 
         /* --- Local Machine Asset Engine Framework (app.py Area Held Securely In Place) --- */
@@ -405,7 +346,9 @@
             
             <!-- LEFT SIDE: EXPANDED 9-TRACK BULLET INTERACTIVE LIST -->
             <section class="left-services-stack">
-                <h3 class="section-title-left">Creative Core Competencies</h3>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--text-white); letter-spacing: 1px; border-bottom: 1px solid var(--text-gold); padding-bottom: 12px; margin-bottom: 15px;">
+                    Creative Core Competencies
+                </h3>
                 
                 <div class="bullet-service-item" tabindex="0">
                     <h4 data-num="01">Creative Business Development</h4>
@@ -476,12 +419,18 @@
                 <div class="profile-frame-right">
                     <img src="Best Randy.jPG" alt="Randy Hensley Portrait"> 
                 </div>
-                <h2>Randy Hensley, <span class="gold-glow">CACDA II</span></h2>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.3rem; margin-bottom: 6px; text-align: center; font-weight: 700;">
+                    Randy Hensley, <span class="gold-glow">CACDA II</span>
+                </h2>
                 <p class="subtitle">Executive Advisor & Behavioral Strategist</p>
                 
                 <div class="biography-narrative-box">
-                    <h5>The H-Note Method</h5>
-                    <h6>The Intersection of Art & Alignment</h6>
+                    <h5 style="font-family: 'Great Vibes', cursive !important; color: var(--text-gold); font-size: 3.4rem; margin-bottom: 5px; text-align: center; font-weight: 400; line-height: 1;">
+                        The H-Note Method
+                    </h5>
+                    <h6 style="text-align: center; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-white); margin-bottom: 25px; opacity: 0.8;">
+                        The Intersection of Art & Alignment
+                    </h6>
                     <p>
                         Randy Hensley has spent half his life developing and mastering the strategic architecture behind the H-Note Method. This signature system represents his true life’s work, acting as a profound bridge between hard behavioral logic and artistic performance. Drawing upon twelve years of high-level human service experience as a dedicated counselor, combined with six years of rigorous operational leadership as a non-profit director and pastor, Randy engineered a methodology that completely redefines how modern businesses communicate, scale, and captivate their target market.
                     </p>
