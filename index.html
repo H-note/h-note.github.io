@@ -8,14 +8,14 @@
         /* --- Core Theme & Color Palette --- */
         :root {
             --bg-black: #080808;
-            --dark-card: rgba(18, 18, 20, 0.94); 
+            --dark-card: rgba(18, 18, 20, 0.95); 
             --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
             --text-gold: #BF953F;
             --text-white: #EAEAEA;
-            --muted-text: #C0C0C0;
+            --muted-text: #CCCCCC;
             --accent-purple: #4A4453;
-            --border-purple: rgba(191, 149, 63, 0.3);
-            --terminal-bg: rgba(12, 12, 14, 0.95);
+            --border-purple: rgba(191, 149, 63, 0.25);
+            --terminal-bg: rgba(12, 12, 14, 0.96);
         }
 
         * {
@@ -26,7 +26,8 @@
         }
 
         body {
-            background-image: linear-gradient(rgba(8, 8, 8, 0.90), rgba(8, 8, 8, 0.90)), url("Gemini_Generated_Image_hbvuduhbvuduhbvu.png");
+            /* Handled background image parameter mapping cleanly for smooth client rendering */
+            background-image: linear-gradient(rgba(8, 8, 8, 0.91), rgba(8, 8, 8, 0.91)), url("Gemini_Generated_Image_hbvuduhbvuduhbvu.png");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -62,7 +63,7 @@
             box-shadow: 0 6px 15px rgba(252, 246, 186, 0.4);
         }
 
-        /* --- Page Header Navigation Banner --- */
+        /* --- Page Header Nav Banner --- */
         header {
             width: 100%;
             display: flex;
@@ -111,7 +112,7 @@
             border-color: var(--text-gold);
         }
 
-        /* --- Main Workspace Layout Framework --- */
+        /* --- Main Two-Column Viewport Split --- */
         main {
             padding-top: 150px; 
             padding-bottom: 60px;
@@ -122,103 +123,99 @@
 
         .workspace-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1.3fr;
-            gap: 45px;
+            grid-template-columns: 1.1fr 1.3fr;
+            gap: 50px;
             margin-bottom: 40px;
             align-items: start;
         }
 
-        /* --- LEFT SIDE: Tight Interactive Accordion List --- */
+        /* --- LEFT SIDE: Minimalist Dynamic Bullet Point List --- */
         .left-services-stack {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 18px;
+            padding-top: 10px;
         }
 
         .section-title-left {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--text-white);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--text-gold);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--text-gold);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
         }
 
-        .interactive-service-row {
-            background-color: rgba(18, 18, 20, 0.5);
-            border: 1px solid rgba(191, 149, 63, 0.15);
-            border-radius: 6px;
-            padding: 15px 20px;
+        .bullet-service-item {
+            list-style: none;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.25s ease;
         }
 
-        .interactive-service-row h4 {
+        .bullet-service-item h4 {
             font-size: 1.15rem;
-            color: var(--text-white);
+            color: var(--muted-text);
+            font-weight: 500;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            transition: color 0.3s ease;
+            transition: all 0.25s ease;
         }
 
-        .interactive-service-row h4::after {
-            content: '➔';
-            font-size: 0.9rem;
-            color: rgba(191, 149, 63, 0.4);
-            transition: transform 0.3s ease, color 0.3s ease;
+        /* Elegant gold bracket bullet formatting */
+        .bullet-service-item h4::before {
+            content: '[' attr(data-num) ']';
+            margin-right: 15px;
+            color: var(--text-gold);
+            font-family: monospace;
+            font-weight: 700;
+            opacity: 0.7;
+            transition: opacity 0.25s ease;
         }
 
-        /* Definition Details: Hidden by default via max-height grid animation */
-        .service-definition {
+        .bullet-definition {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            color: var(--muted-text);
+            color: #A5A5A5;
             font-size: 0.95rem;
-            margin-top: 0;
             line-height: 1.5;
+            padding-left: 45px;
+            margin-top: 0;
         }
 
-        /* Hover & Touch Interaction Triggers */
-        .interactive-service-row:hover,
-        .interactive-service-row:focus-within {
-            background-color: var(--dark-card);
-            border-color: var(--text-gold);
-            box-shadow: 0 4px 15px rgba(191, 149, 63, 0.1);
+        /* Hover & Touch Reactive Logic - Removes the box frame style entirely */
+        .bullet-service-item:hover h4 {
+            color: #FFFFFF;
+            text-shadow: 0 0 5px rgba(255,255,255,0.1);
+            transform: translateX(4px);
         }
 
-        .interactive-service-row:hover h4 {
-            color: var(--text-gold);
+        .bullet-service-item:hover h4::before {
+            opacity: 1;
         }
 
-        .interactive-service-row:hover h4::after {
-            transform: rotate(90deg);
-            color: var(--text-gold);
+        .bullet-service-item:hover .bullet-definition {
+            max-height: 100px;
+            margin-top: 8px;
+            padding-bottom: 12px;
         }
 
-        .interactive-service-row:hover .service-definition {
-            max-height: 120px; /* Expands smoothly under the row text */
-            margin-top: 10px;
-            padding-bottom: 5px;
-        }
-
-        /* --- RIGHT SIDE: Clean Integrated Mission Panel --- */
+        /* --- RIGHT SIDE: Clean Premium Identity Profile & Biography Narrative --- */
         .right-profile-panel {
             background-color: var(--dark-card);
             border: 1px solid var(--border-purple);
             border-radius: 12px;
-            padding: 35px;
+            padding: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
             backdrop-filter: blur(5px);
         }
 
         .profile-frame-right {
             width: 100%;
-            max-width: 260px;
+            max-width: 250px;
             margin: 0 auto 20px auto;
             border-radius: 8px;
             overflow: hidden;
@@ -233,43 +230,46 @@
         }
 
         .right-profile-panel h2 {
-            font-size: 2rem;
+            font-size: 2.1rem;
             margin-bottom: 4px;
             text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .right-profile-panel p.subtitle {
             color: var(--text-gold);
             font-weight: 600;
-            margin-bottom: 25px;
-            font-size: 1.05rem;
+            margin-bottom: 30px;
+            font-size: 1rem;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
-        .integrated-mission {
+        .biography-narrative-box {
             border-top: 1px solid rgba(191, 149, 63, 0.25);
             padding-top: 25px;
-            text-align: justify;
         }
 
-        .integrated-mission h5 {
+        .biography-narrative-box h5 {
             color: var(--text-gold);
             font-size: 1.1rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
             text-align: center;
         }
 
-        .integrated-mission p {
+        .biography-narrative-box p {
             font-size: 1.05rem;
-            line-height: 1.7;
-            color: #EAEAEA;
+            line-height: 1.75;
+            color: #E2E2E2;
+            text-align: justify;
+            margin-bottom: 15px;
         }
 
-        /* --- Local Engine Block Structure (app.py Area Held In Place) --- */
+        /* --- Local Machine Asset Engine Framework (app.py Held Securely In Place) --- */
         .local-tool-section {
             background-color: var(--terminal-bg);
             border: 1px solid var(--border-purple);
@@ -341,13 +341,13 @@
             background: rgba(8, 8, 8, 0.93);
         }
 
-        /* --- Responsive Adjustments --- */
+        /* --- Mobile Viewport Breakpoint Adjustments --- */
         @media (max-width: 1024px) {
             .workspace-grid {
                 grid-template-columns: 1fr;
             }
             .right-profile-panel {
-                order: -1; /* Keep identity panel at top on mobile viewports */
+                order: -1; /* Retains priority identification element on top for compact viewports */
             }
             .engine-capabilities {
                 grid-template-columns: 1fr;
@@ -363,57 +363,57 @@
             <img src="best Logo.JPG" alt="H-Note Creative Solutions Logo"> 
         </div>
         <div class="auth-links">
-            <button onclick="alert('Redirecting to Clubhouse Portal Gateway...')">Clubhouse Sign Up & Login</button>
+            <button onclick="alert('Redirecting to Clubhouse Portal Access Node...')">Clubhouse Sign Up & Login</button>
             <button class="student-btn" onclick="alert('Redirecting to Student Dashboard Terminal...')">Students Portal Login</button>
         </div>
     </header>
 
-    <!-- MAIN CORE INTERACTIVE CONTAINER -->
+    <!-- CORE INTERACTIVE WORKSPACE CONTAINER -->
     <main>
         
         <div class="workspace-grid">
             
-            <!-- LEFT SIDE: SLICK COMPACT ACCORDION LISTING -->
+            <!-- LEFT SIDE: MINIMALIST ACCORDION BULLET LIST -->
             <section class="left-services-stack">
                 <h3 class="section-title-left">Creative Core Competencies</h3>
                 
-                <div class="interactive-service-row" tabindex="0">
-                    <h4>1. Creative Business Development</h4>
-                    <div class="service-definition">
-                        Rearchitecting standard client attraction funnels into highly active, automated business performance tracks engineered to expand execution limits.
+                <div class="bullet-service-item" tabindex="0">
+                    <h4 data-num="01">Creative Business Development</h4>
+                    <div class="bullet-definition">
+                        Rearchitecting standard customer conversion models into high-impact, automated business performance pipelines designed to push operational growth envelopes.
                     </div>
                 </div>
                 
-                <div class="interactive-service-row" tabindex="0">
-                    <h4>2. Creative Business Planning</h4>
-                    <div class="service-definition">
-                        Developing dynamic developmental blueprints that cleanly coordinate daily operational mechanics with high-level artistic creative strategy models.
+                <div class="bullet-service-item" tabindex="0">
+                    <h4 data-num="02">Creative Business Planning</h4>
+                    <div class="bullet-definition">
+                        Engineering dynamic scaling maps that seamlessly synthesize traditional logistics with high-level artistic performance frameworks.
                     </div>
                 </div>
                 
-                <div class="interactive-service-row" tabindex="0">
-                    <h4>3. Performing Arts as a Business Tool — Level 1</h4>
-                    <div class="service-definition">
-                        Foundational architecture focusing on immediate corporate stage presence, conversational timing vectors, and establishing behavioral clarity.
+                <div class="bullet-service-item" tabindex="0">
+                    <h4 data-num="03">Performing Arts as a Business Tool — Level 1</h4>
+                    <div class="bullet-definition">
+                        Core execution mechanics: Transitioning fundamental theatrical timing, spatial awareness, and presence models directly into standard corporate leadership patterns.
                     </div>
                 </div>
                 
-                <div class="interactive-service-row" tabindex="0">
-                    <h4>4. Performing Arts as a Business Tool — Level 2</h4>
-                    <div class="service-definition">
-                        Intermediate metrics detailing advanced narrative orchestration, structural hook timing, and systematic positioning to lower consumer defense shields.
+                <div class="bullet-service-item" tabindex="0">
+                    <h4 data-num="04">Performing Arts as a Business Tool — Level 2</h4>
+                    <div class="bullet-definition">
+                        Intermediate coordination: Designing narrative hooks and precise emotional arrangement strings calculated to disarm audience skepticism and open communication vectors.
                     </div>
                 </div>
                 
-                <div class="interactive-service-row" tabindex="0">
-                    <h4>5. Performing Arts as a Business Tool — Level 3</h4>
-                    <div class="service-definition">
-                        Master enterprise alignment frameworks transforming static organizational pipelines into immersive, high-ticket consumer showpieces.
+                <div class="bullet-service-item" tabindex="0">
+                    <h4 data-num="05">Performing Arts as a Business Tool — Level 3</h4>
+                    <div class="bullet-definition">
+                        Master architecture tracks: Turning standard enterprise distribution methods into complex, live business performances that establish true authority within your target market.
                     </div>
                 </div>
             </section>
 
-            <!-- RIGHT SIDE: PERSONAL IDENTITY & INTEGRATED MISSION PANEL -->
+            <!-- RIGHT SIDE: PHOTO, NAME, AND INTEGRATED STRATEGIC STORYLINE -->
             <section class="right-profile-panel">
                 <div class="profile-frame-right">
                     <img src="Best Randy.jPG" alt="Randy Hensley Portrait"> 
@@ -421,10 +421,13 @@
                 <h2>Randy Hensley, <span class="gold-glow">CACDA II</span></h2>
                 <p class="subtitle">Executive Advisor & Behavioral Strategist</p>
                 
-                <div class="integrated-mission">
+                <div class="biography-narrative-box">
                     <h5>The H-Note Method</h5>
                     <p>
-                        Backed by 12 years of dedicated counseling and 6 years of strategic non-profit operational leadership as a director and pastor, we specialize in taking the performing arts and turning them into creative business strategies and business developmental techniques. We take profound pride in what we do and believe that <strong>every business is like a show—a live performance.</strong> We use these specialized techniques to make your business shine significantly brighter than your competitors. That is the foundational blueprint of the H-Note standard.
+                        Randy Hensley has spent half his life developing and mastering the strategic architecture behind the H-Note Method. This signature system represents his true life’s work, acting as a bridge between hard behavioral logic and artistic performance. Drawing upon twelve years of high-level human service experience as a dedicated counselor, combined with six years of rigorous operational leadership as a non-profit director and pastor, Randy engineered a methodology that redefines how modern businesses communicate, scale, and captivate an audience.
+                    </p>
+                    <p>
+                        We specialize in taking the performing arts and turning them into creative business strategies and business developmental techniques. We take profound pride in what we do and believe that <strong>every business is like a show—a live, deliberate performance.</strong> Through these elite artistic principles, we give your enterprise the psychological alignment and staging it needs to shine significantly brighter than your competitors. That is the design metric of the H-Note standard.
                     </p>
                 </div>
             </section>
