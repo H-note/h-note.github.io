@@ -8,13 +8,14 @@
         /* --- Core Theme & Color Palette --- */
         :root {
             --bg-black: #080808;
-            --dark-card: #121214; 
+            --dark-card: rgba(18, 18, 20, 0.92); 
             --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
             --text-gold: #BF953F;
             --text-white: #EAEAEA;
-            --muted-text: #A0A0A0;
+            --muted-text: #C0C0C0;
             --accent-purple: #4A4453;
-            --border-purple: rgba(74, 68, 83, 0.4);
+            --border-purple: rgba(191, 149, 63, 0.3);
+            --terminal-bg: rgba(12, 12, 14, 0.95);
         }
 
         * {
@@ -25,7 +26,11 @@
         }
 
         body {
-            background-color: var(--bg-black);
+            /* References your newly added background asset verbatim with a protective dark tint layer */
+            background: linear-gradient(rgba(8, 8, 8, 0.88), rgba(8, 8, 8, 0.88)), url('Gemini_Generated_Image_hbvuduhbvuduhbvu.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--text-white);
             line-height: 1.6;
             min-height: 100vh;
@@ -35,7 +40,7 @@
         /* --- Global Utility Classes --- */
         .gold-glow {
             color: var(--text-gold);
-            text-shadow: 0px 0px 8px rgba(191, 149, 63, 0.3);
+            text-shadow: 0px 0px 8px rgba(191, 149, 63, 0.4);
         }
 
         button.gold-btn {
@@ -58,7 +63,7 @@
             box-shadow: 0 6px 15px rgba(252, 246, 186, 0.4);
         }
 
-        /* --- Page Header & Nav --- */
+        /* --- Page Header & Nav Banner --- */
         header {
             width: 100%;
             display: flex;
@@ -74,7 +79,7 @@
         }
 
         .logo-area img {
-            height: 50px;
+            height: 55px;
             display: block;
             object-fit: contain;
         }
@@ -86,7 +91,7 @@
 
         .auth-links button {
             background: transparent;
-            border: 1px solid var(--gray-purple, var(--accent-purple));
+            border: 1px solid var(--border-purple);
             color: var(--text-white);
             padding: 10px 18px;
             font-size: 0.85rem;
@@ -99,16 +104,17 @@
         .auth-links button:hover {
             border-color: var(--text-gold);
             color: var(--text-gold);
+            box-shadow: 0 0 10px rgba(191, 149, 63, 0.2);
         }
 
         .auth-links button.student-btn {
-            background-color: #16161a;
+            background-color: rgba(191, 149, 63, 0.1);
             border-color: var(--text-gold);
         }
 
         /* --- Main Hero Content Layout --- */
         main {
-            padding-top: 140px; 
+            padding-top: 150px; 
             padding-bottom: 60px;
             width: 88%;
             max-width: 1300px;
@@ -126,7 +132,8 @@
             padding: 35px;
             margin-bottom: 50px;
             align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
         }
 
         .profile-frame {
@@ -136,7 +143,7 @@
             border-radius: 8px;
             overflow: hidden;
             border: 2px solid #BF953F;
-            box-shadow: 0 0 15px rgba(191, 149, 63, 0.2);
+            box-shadow: 0 0 15px rgba(191, 149, 63, 0.3);
         }
 
         .profile-frame img {
@@ -184,17 +191,23 @@
         }
 
         /* --- Services Grid Section --- */
+        .services-section {
+            margin-bottom: 50px;
+        }
+
         .services-section h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 25px;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .service-card {
@@ -204,17 +217,21 @@
             padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
         .service-card:hover {
             border-color: var(--text-gold);
             transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(191, 149, 63, 0.15);
         }
 
         .service-card h4 {
             font-size: 1.15rem;
-            color: var(--text-white);
-            margin-bottom: 10px;
+            color: var(--text-gold);
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .service-card p {
@@ -222,21 +239,49 @@
             color: var(--muted-text);
         }
 
+        /* --- Refined H-Note Method Mission Statement --- */
+        .mission-statement-box {
+            background: linear-gradient(135deg, rgba(18, 18, 20, 0.95) 0%, rgba(30, 26, 36, 0.95) 100%);
+            border: 1px solid var(--text-gold);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .mission-statement-box h4 {
+            font-size: 1.4rem;
+            color: var(--text-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .mission-statement-box p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #f0f0f0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         /* --- App Engine Deep-Dive Section --- */
         .local-tool-section {
-            background-color: #0c0c0e;
-            border: 1px solid #BF953F;
+            background-color: var(--terminal-bg);
+            border: 1px solid var(--border-purple);
             border-radius: 8px;
             padding: 35px;
             margin-bottom: 30px;
-            box-shadow: 0 0 20px rgba(191, 149, 63, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
 
         .terminal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-purple);
+            border-bottom: 1px solid rgba(191, 149, 63, 0.2);
             padding-bottom: 12px;
             margin-bottom: 25px;
         }
@@ -291,6 +336,7 @@
             border-top: 1px solid var(--border-purple);
             color: var(--muted-text);
             font-size: 0.9rem;
+            background: rgba(8, 8, 8, 0.9);
         }
 
         /* --- Responsive Adjustments --- */
@@ -313,7 +359,7 @@
                 padding: 15px 6%;
             }
             main {
-                padding-top: 200px;
+                padding-top: 220px;
             }
             .services-grid {
                 grid-template-columns: 1fr;
@@ -332,15 +378,15 @@
             <img src="best Logo.JPG" alt="H-Note Creative Solutions Logo"> 
         </div>
         <div class="auth-links">
-            <button onclick="alert('Redirecting to Clubhouse Portal Sign-Up/Login...')">Clubhouse Sign Up / Login</button>
-            <button class="student-btn" onclick="alert('Redirecting to Student Dashboard Terminal...')">Student Login</button>
+            <button onclick="alert('Redirecting to Clubhouse Portal Sign-Up/Login...')">Clubhouse Sign Up & Login</button>
+            <button class="student-btn" onclick="alert('Redirecting to Students Portal Dashboard...')">Students Portal Login</button>
         </div>
     </header>
 
     <!-- CORE CONTENT CONTAINER -->
     <main>
         
-        <!-- BIOGRAPHY, CREDENTIALS & SKILLS AREA -->
+        <!-- BIOGRAPHY, CREDENTIALS & EXPANDED SKILLS AREA -->
         <section class="bio-section">
             <div class="profile-frame">
                 <img src="Best Randy.jPG" alt="Randy Hensley Portrait"> 
@@ -357,7 +403,8 @@
                             <li>⚡ 12 Years Dedicated Counselor</li>
                             <li>🏛️ 6 Years Non-Profit Operational Leadership</li>
                             <li>🧠 Behavioral Psychology Integration</li>
-                            <li>📈 Systems & Strategic Business Scaling</li>
+                            <li>🎭 Performing Arts Methodology Application</li>
+                            <li>📊 Scale Architecture & Business Metrics</li>
                         </ul>
                     </div>
                     <!-- Academic Credentials Column -->
@@ -365,8 +412,8 @@
                         <h4>Education & Background</h4>
                         <ul>
                             <li>🎓 Graduate Student Academic Track</li>
-                            <li>🏫 Pacific College Alumni</li>
                             <li>🏫 University of California, Fresno State</li>
+                            <li>🏫 Pacific College Training Tracks</li>
                             <li>🏫 Intercoast Colleges — Certification Architecture</li>
                         </ul>
                     </div>
@@ -374,41 +421,62 @@
             </div>
         </section>
 
-        <!-- PERFORMANCE ADVERTISING & ACCOUNTABILITY SERVICES -->
+        <!-- HIGH-CAPACITY ADVERTISING & ACCOUNTABILITY SERVICES -->
         <section class="services-section">
-            <h3><span class="gold-glow">Specialized Business Architecture</span> & Development</h3>
+            <h3>Our Core Offerings & Business Systems</h3>
             <div class="services-grid">
                 <div class="service-card">
+                    <h4>Specialized Business Counseling</h4>
+                    <p>Tailored, high-level psychological support for executives, stripping away friction and streamlining clinical operational headspace.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Business Skill Development</h4>
+                    <p>Equipping your core leadership layer with professional, actionable communication structures to manage scaled workflows cleanly.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Business Education & Development</h4>
+                    <p>Foundational structural architecture models that merge behavioral science parameters directly into commercial execution models.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Creative Business Development</h4>
+                    <p>Our flagship approach—rearchitecting standard pipeline infrastructure into high-engagement, dynamic brand systems.</p>
+                </div>
+                <div class="service-card">
                     <h4>Copywriting</h4>
-                    <p>Engineered, psychological conversion copy that lowers audience defenses and drives action vectors.</p>
+                    <p>Engineered, psychological conversion copy that lowers audience defenses and drives target consumer action vectors.</p>
                 </div>
                 <div class="service-card">
                     <h4>Content Creation</h4>
-                    <p>Premium media styling and asset curation designed to position authority in crowded market spaces.</p>
+                    <p>Premium media styling and authority asset curation engineered to cut through noise and dominate modern algorithms.</p>
                 </div>
                 <div class="service-card">
                     <h4>Social Media Advertising</h4>
-                    <p>Dynamic pattern-interrupt campaign structures across leading communication algorithms.</p>
+                    <p>Dynamic pattern-interrupt paid media campaign models constructed over complex target placement networks.</p>
                 </div>
                 <div class="service-card">
                     <h4>Google Advertising</h4>
-                    <p>High-intent keyword structural deployment targeting ready-to-buy clients and enterprise opportunities.</p>
+                    <p>High-intent search engine acquisition frameworks structured to locate ready-to-buy clients and enterprise accounts.</p>
                 </div>
                 <div class="service-card">
-                    <h4>Specialized Business Growth Counseling</h4>
-                    <p>Peer-to-peer accountability and alignment models applying cognitive parameters to executive stress.</p>
-                </div>
-                <div class="service-card">
-                    <h4>Business Development</h4>
-                    <p>Frictionless workflow optimization and high-ticket infrastructure design built to maximize monthly run rates.</p>
+                    <h4>Business Classrooms & Coaching</h4>
+                    <p>Strategic individual training modules and group deep dives covering monetization pathways and operational autonomy frameworks.</p>
                 </div>
             </div>
         </section>
 
-        <!-- PROPRIETARY APP ENGINE CAPABILITIES BREAKDOWN -->
+        <!-- THE SIGNATURE H-NOTE METHOD MISSION STATEMENT -->
+        <section class="mission-statement-box">
+            <h4>The H-Note Method</h4>
+            <p>
+                We specialize in taking the performing arts and turning them into creative business strategies and business developmental techniques. We take profound pride in what we do and firmly believe that <strong>every business is like a show—a live, synchronized performance.</strong> By utilizing these advanced artistic techniques, we make your brand's presence shine brighter than any competitor in the market space. That is the unmatched standard of our design.
+            </p>
+        </section>
+
+        <!-- PROPRIETARY APP ENGINE CAPABILITIES BREAKDOWN (app.py) -->
         <section class="local-tool-section">
             <div class="terminal-header">
-                <div class="terminal-title">🛰️ PROPRIETARY INFRASTRUCTURE: H-NOTE ASSET ENGINE ACTIVE</div>
+                <!-- Verbatim script tracking reference node -->
+                <div class="terminal-title">🛰️ PROPRIETARY INFRASTRUCTURE: H-NOTE ASSET ENGINE ACTIVE (app.py)</div>
                 <div class="terminal-dots">
                     <span style="background-color: #ff5f56;"></span>
                     <span style="background-color: #ffbd2e;"></span>
@@ -417,28 +485,28 @@
             </div>
             
             <p style="font-size: 1.3rem; margin-bottom: 10px; font-weight: bold;">
-                Automated Market Signal & Complete Campaign Generation Node
+                Automated Market Signal & Complete Campaign Generation Node[cite: 1]
             </p>
             <p style="color: var(--muted-text); font-size: 1rem; max-width: 95%; margin-bottom: 20px;">
-                We utilize an internally deployed, high-speed orchestration tool to architect your entire client acquisition blueprint. By mapping raw human resonance over analytical data grids, this local script processes data vectors and engineers customized campaigns within seconds.
+                We utilize an internally deployed, high-speed orchestration tool to architect your entire client acquisition blueprint[cite: 1]. By mapping raw human resonance over analytical data grids, this local script processes data vectors and engineers customized campaigns within seconds[cite: 1].
             </p>
 
             <div class="engine-capabilities">
                 <div class="capability-box">
-                    <h5>Instant Copywriting & Content Generation</h5>
-                    <p>Bypasses rigid, predictable templates to forge raw editorial narratives, pattern-interrupt formats, and high-converting video script structures in moments.</p>
+                    <h5>Instant Copywriting & Content Generation[cite: 1]</h5>
+                    <p>Bypasses rigid, predictable templates to forge raw editorial narratives, pattern-interrupt formats, and high-converting video script structures in moments[cite: 1].</p>
                 </div>
                 <div class="capability-box">
-                    <h5>Social Media & Google Ad Frameworks</h5>
-                    <p>Deploys dynamic short-form hooks, long-form Facebook editorials, and precise competitor-conquest keyword strings structured to break through client defense shields.</p>
+                    <h5>Social Media & Google Ad Frameworks[cite: 1]</h5>
+                    <p>Deploys dynamic short-form hooks, long-form Facebook editorials, and precise competitor-conquest keyword strings structured to break through client defense shields[cite: 1].</p>
                 </div>
                 <div class="capability-box">
-                    <h5>Direct-Response Email Campaigns</h5>
-                    <p>Generates deeply personalized multi-vector cold breaks, value insights, and last-chance sequence layers engineered directly for list integration or bulk delivery pipelines.</p>
+                    <h5>Direct-Response Email Campaigns[cite: 1]</h5>
+                    <p>Generates deeply personalized multi-vector cold breaks, value insights, and last-chance sequence layers engineered directly for list integration or bulk delivery pipelines[cite: 1].</p>
                 </div>
                 <div class="capability-box">
-                    <h5>Predictive Scaling Models & Revenue Charts</h5>
-                    <p>Calculates precise friction metrics, drop-off tracking points, and automated conversion trajectory maps to geometrically scale operations cleanly toward target milestones.</p>
+                    <h5>Sales & Revenue Gross Scale Modeling[cite: 1]</h5>
+                    <p>Calculates precise friction metrics, drop-off tracking points, and automated conversion trajectory maps to geometrically scale operations cleanly toward target milestones[cite: 1].</p>
                 </div>
             </div>
 
