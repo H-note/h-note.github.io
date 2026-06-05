@@ -1,150 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>H-Note Creative Solutions</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: #000;
-      color: #ffd700;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    h1, h2 {
-      text-align: center;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-    .poem {
-      text-align: center;
-      font-style: italic;
-      margin: 40px 0;
-      font-size: 1.3em;
-    }
-    .frame {
-      text-align: center;
-      margin: 50px 0;
-      position: relative;
-    }
-    .frame img {
-      border: 5px solid #ffd700;
-      box-shadow: 0 0 30px #ffd700;
-      max-width: 100%;
-      height: auto;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin: 60px 0;
-    }
-    .service-card {
-      background: rgba(255,215,0,0.1);
-      border: 2px solid #ffd700;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-    }
-    .portal {
-      text-align: center;
-      margin: 80px 0;
-    }
-    .portal a {
-      color: #ffd700;
-      font-size: 2em;
-      text-decoration: none;
-      border: 3px solid #ffd700;
-      padding: 15px 40px;
-      border-radius: 50px;
-      transition: all 0.3s;
-    }
-    .portal a:hover {
-      background: #ffd700;
-      color: #000;
-    }
-    footer {
-      text-align: center;
-      margin-top: 100px;
-      font-size: 0.9em;
-      opacity: 0.7;
-    }
-    .ask-dottie {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ffd700;
-      color: #000;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-weight: bold;
-      box-shadow: 0 0 20px #ffd700;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H-Note Creative Solutions - Premium Coaching & Strategic Planning</title>
+    <style>
+        /* --- Core Theme & Color Palette --- */
+        :root {
+            --bg-black: #080808;
+            --dark-card: #121214; /* For the numbered blocks */
+            --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+            --text-gold: #BF953F;
+            --text-white: #EAEAEA;
+            --muted-text: #A0A0A0;
+            --accent-purple: #4A4453;
+            --border-purple: rgba(74, 68, 83, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- Global Utility Classes --- */
+        .gold-glow {
+            color: var(--text-gold);
+            text-shadow: 0px 0px 8px rgba(191, 149, 63, 0.3);
+        }
+
+        .gradient-gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        button.gold-btn {
+            background: var(--gold-gradient);
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(191, 149, 63, 0.2);
+        }
+
+        button.gold-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(252, 246, 186, 0.4);
+        }
+
+        /* --- Page Header & Nav --- */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 6%;
+            background-color: rgba(8, 8, 8, 0.9);
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-purple);
+        }
+
+        .logo-area img {
+            height: 40px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--text-gold);
+        }
+
+        /* --- Main Hero Content Layout --- */
+        main {
+            padding-top: 130px; /* Accounts for fixed header */
+            padding-bottom: 60px;
+            width: 88%;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* --- Left Column: Hero Text & Numbered Modules --- */
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            font-weight: 800;
+            color: var(--text-white);
+        }
+
+        .hero-text h1 span.highlight {
+            display: block;
+            color: var(--text-gold);
+        }
+
+        .hero-text p.sub-headline {
+            color: var(--muted-text);
+            font-size: 1.2rem;
+            max-width: 80%;
+            margin-bottom: 30px;
+        }
+
+        /* Numbered Module Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .module-card {
+            background-color: var(--dark-card);
+            border: 1px solid var(--border-purple);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .module-card:hover {
+            border-color: var(--text-gold);
+            transform: translateY(-5px);
+        }
+
+        .module-card span.gold-number {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text-gold);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .module-card h4 {
+            color: var(--text-white);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* --- Right Column: Profile & Secure Uplink --- */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background-color: var(--dark-card);
+            border: 1px solid var(--text-gold); /* Prominent gold border */
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .profile-card img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--text-gold);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .profile-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-white);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-card p.title {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .profile-card button {
+            background: transparent;
+            border: 1px solid var(--muted-text);
+            color: var(--muted-text);
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .profile-card button:hover {
+            border-color: var(--text-gold);
+            color: var(--text-gold);
+        }
+
+        /* Secure Uplink Call to Action */
+        .uplink-box {
+            text-align: center;
+            background-color: #1A1A1D; /* Specific gray from the mock */
+            border: 1px solid var(--border-purple);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .uplink-box p {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            margin-bottom: 10px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            width: 88%;
+            max-width: 1300px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--border-purple);
+            color: var(--muted-text);
+            font-size: 0.9rem;
+        }
+
+        footer .mission {
+            color: var(--muted-text);
+            margin-bottom: 10px;
+        }
+
+        footer .contact {
+            font-size: 0.8rem;
+        }
+
+        /* --- Responsive Design for Smaller Screens --- */
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                padding-top: 120px;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .right-column {
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 6%;
+            }
+
+            main {
+                padding-top: 180px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>H-Note Creative Solutions</h1>
-    
-    <div class="poem">
-      Fire in the dark,<br>
-      Gold on black,<br>
-      Echoes that don't fade.<br>
-      Wake up.<br>
-      We're home.
-    </div>
+    <!-- SITE HEADER & NAV -->
+    <header>
+        <div class="logo-area">
+            <img src="path/to/h_note_logo_gold.png" alt="H-Note Logo"> <!-- Add your gold logo image path -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#hnote-method">H-Note Method</a></li>
+                <li><a href="#portal">Client Portal (Secure Uplink)</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="frame">
-      <img src="your-library-pic.jpg" alt="Randy in the library" onmouseover="this.title='My voice: \"Hey, I'm here.\"'" onmouseout="this.title=''">
-    </div>
+    <!-- MAIN PLATFORM CONTENT -->
+    <main>
+        
+        <!-- Left Section: Headline and Process Modules -->
+        <div class="hero-text">
+            <h1>
+                BUSINESS COACHING
+                <span class="highlight">& STRATEGIC PLANNING</span>
+            </h1>
+            <p class="sub-headline">
+                Blending Deep Psychology with Data-Driven Execution
+            </p>
 
-    <div class="services">
-      <div class="service-card">
-        <h2>Strategic Building</h2>
-        <p>We build what lasts.</p>
-      </div>
-      <div class="service-card">
-        <h2>Web Design</h2>
-        <p>Gold on black. Clean. Yours.</p>
-      </div>
-      <div class="service-card">
-        <h2>Copywriting</h2>
-        <p>Words that hit like drums.</p>
-      </div>
-      <div class="service-card">
-        <h2>Counseling</h2>
-        <p>No judgment. Just truth.</p>
-      </div>
-      <div class="service-card">
-        <h2>Clubhouse</h2>
-        <p>Join the circle. Stay late.</p>
-      </div>
-      <div class="service-card">
-        <h2>Student Portal</h2>
-        <p>Learn. Grow. Ask Dottie.</p>
-      </div>
-    </div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <span class="gold-number">01.</span>
+                    <h4>Forensic Data Scraping</h4>
+                </div>
+                <div class="module-card">
+                    <span class="gold-number">02.</span>
+                    <h4>Behavioral Psych Tuning</h4>
+                </div>
+                <div class="module-card">
+                    <span class="gold-number">03.</span>
+                    <h4>Secure Asset Pipelines</h4>
+                </div>
+                <div class="module-card">
+                    <span class="gold-number">04.</span>
+                    <h4>Local Command Center</h4>
+                </div>
+            </div>
+        </div>
 
-    <div class="portal">
-      <a href="#portal">Enter the Portal</a>
-    </div>
+        <!-- Right Section: Profile and Action -->
+        <div class="right-column">
+            <!-- RANDY HENSLEY Profile -->
+            <div class="profile-card">
+                <img src="path/to/randy_hensley_profile.jpg" alt="Randy Hensley"> <!-- Add your image path -->
+                <h3>Randy Hensley, <span class="gold-glow">CACDA II</span></h3>
+                <p class="title">Chief Strategist / Executive Coach</p>
+                <button>Listen to the Method</button>
+            </div>
 
-  </div>
+            <!-- Counseling Services Call-to-Action -->
+            <div class="uplink-box">
+                <p>Counseling Services</p>
+                <button class="gold-btn">Initialize Audit Protocol / Set Appointment</button>
+            </div>
+        </div>
 
-  <footer>
-    © 2026 H-Note Creative Solutions. Made with ramen, drums, and love.
-  </footer>
+    </main>
 
-  <div class="ask-dottie">Ask Dottie</div>
+    <!-- GLOBAL FOOTER -->
+    <footer>
+        <p class="mission">
+            Our Mission: 
+            <span class="gold-glow">Integrating Arts & Psychology into Strategic Commerce</span>
+        </p>
+        <p class="contact">
+            Minimal Contact | For Inquiries: strategic@h-note.ca | All Systems Operational
+        </p>
+    </footer>
 
 </body>
 </html>
