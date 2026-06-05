@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H-Note Creative Solutions - Premium Business Development</title>
+    <!-- Importing Premium Google Fonts: Playfair Display for Serif Elegance, Great Vibes for Calligraphy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
         /* --- Core Theme & Color Palette --- */
         :root {
             --bg-black: #080808;
-            --dark-card: rgba(18, 18, 20, 0.95); 
+            --dark-card: rgba(15, 15, 17, 0.94); 
             --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
             --text-gold: #BF953F;
             --text-white: #EAEAEA;
             --muted-text: #CCCCCC;
-            --accent-purple: #4A4453;
             --border-purple: rgba(191, 149, 63, 0.25);
             --terminal-bg: rgba(12, 12, 14, 0.96);
         }
@@ -22,12 +26,12 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            /* Handled background image parameter mapping cleanly for smooth client rendering */
-            background-image: linear-gradient(rgba(8, 8, 8, 0.91), rgba(8, 8, 8, 0.91)), url("Gemini_Generated_Image_hbvuduhbvuduhbvu.png");
+            font-family: 'Inter', sans-serif;
+            /* Hardcoded to pull from your live repo directory to ensure the background displays perfectly on any machine */
+            background-image: linear-gradient(rgba(8, 8, 8, 0.92), rgba(8, 8, 8, 0.92)), url("https://h-note.github.io/Gemini_Generated_Image_hbvuduhbvuduhbvu.png");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -116,40 +120,40 @@
         main {
             padding-top: 150px; 
             padding-bottom: 60px;
-            width: 88%;
-            max-width: 1300px;
+            width: 90%;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .workspace-grid {
             display: grid;
-            grid-template-columns: 1.1fr 1.3fr;
-            gap: 50px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
             margin-bottom: 40px;
             align-items: start;
         }
 
-        /* --- LEFT SIDE: Minimalist Dynamic Bullet Point List --- */
+        /* --- LEFT SIDE: Minimalist Dynamic Bullet List --- */
         .left-services-stack {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 16px;
             padding-top: 10px;
         }
 
         .section-title-left {
-            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
             color: var(--text-white);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             border-bottom: 1px solid var(--text-gold);
-            padding-bottom: 10px;
-            margin-bottom: 10px;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .bullet-service-item {
             list-style: none;
-            padding: 4px 0;
+            padding: 6px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             cursor: pointer;
             transition: all 0.25s ease;
@@ -164,33 +168,31 @@
             transition: all 0.25s ease;
         }
 
-        /* Elegant gold bracket bullet formatting */
         .bullet-service-item h4::before {
             content: '[' attr(data-num) ']';
             margin-right: 15px;
             color: var(--text-gold);
             font-family: monospace;
             font-weight: 700;
-            opacity: 0.7;
+            opacity: 0.6;
             transition: opacity 0.25s ease;
         }
 
         .bullet-definition {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            color: #A5A5A5;
+            transition: max-height 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            color: #AFAFAFAF;
             font-size: 0.95rem;
             line-height: 1.5;
             padding-left: 45px;
             margin-top: 0;
         }
 
-        /* Hover & Touch Reactive Logic - Removes the box frame style entirely */
+        /* Hover & Touch Interaction styles */
         .bullet-service-item:hover h4 {
             color: #FFFFFF;
-            text-shadow: 0 0 5px rgba(255,255,255,0.1);
-            transform: translateX(4px);
+            transform: translateX(6px);
         }
 
         .bullet-service-item:hover h4::before {
@@ -198,29 +200,35 @@
         }
 
         .bullet-service-item:hover .bullet-definition {
-            max-height: 100px;
+            max-height: 120px;
             margin-top: 8px;
-            padding-bottom: 12px;
+            padding-bottom: 14px;
         }
 
-        /* --- RIGHT SIDE: Clean Premium Identity Profile & Biography Narrative --- */
+        /* --- RIGHT SIDE: Enhanced Portrait Frame & Calligraphy Narrative Panel --- */
         .right-profile-panel {
             background-color: var(--dark-card);
             border: 1px solid var(--border-purple);
             border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            padding: 45px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
             backdrop-filter: blur(5px);
         }
 
+        /* Maximized picture frame styling matching your instruction */
         .profile-frame-right {
             width: 100%;
-            max-width: 250px;
-            margin: 0 auto 20px auto;
+            max-width: 340px; /* Made picture noticeably larger */
+            margin: 0 auto 25px auto;
             border-radius: 8px;
             overflow: hidden;
             border: 2px solid #BF953F;
-            box-shadow: 0 0 15px rgba(191, 149, 63, 0.3);
+            box-shadow: 0 0 20px rgba(191, 149, 63, 0.4), 0 0 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-frame-right:hover {
+            transform: scale(1.02);
         }
 
         .profile-frame-right img {
@@ -230,46 +238,68 @@
         }
 
         .right-profile-panel h2 {
-            font-size: 2.1rem;
-            margin-bottom: 4px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            margin-bottom: 6px;
             text-align: center;
             font-weight: 700;
-            letter-spacing: 0.5px;
         }
 
         .right-profile-panel p.subtitle {
             color: var(--text-gold);
             font-weight: 600;
-            margin-bottom: 30px;
-            font-size: 1rem;
+            margin-bottom: 35px;
+            font-size: 0.95rem;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
         }
 
         .biography-narrative-box {
             border-top: 1px solid rgba(191, 149, 63, 0.25);
-            padding-top: 25px;
+            padding-top: 30px;
         }
 
+        /* High-end Calligraphy styling applied specifically to the mission titles */
         .biography-narrative-box h5 {
+            font-family: 'Great Vibes', cursive;
             color: var(--text-gold);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+            font-size: 2.6rem;
+            margin-bottom: 5px;
             text-align: center;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .biography-narrative-box h6 {
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-white);
+            margin-bottom: 25px;
+            opacity: 0.8;
         }
 
         .biography-narrative-box p {
             font-size: 1.05rem;
-            line-height: 1.75;
-            color: #E2E2E2;
+            line-height: 1.8;
+            color: #E5E5E5;
             text-align: justify;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        /* --- Local Machine Asset Engine Framework (app.py Held Securely In Place) --- */
+        .biography-narrative-box p::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--text-gold);
+            float: left;
+            margin-right: 8px;
+            line-height: 1;
+        }
+
+        /* --- Local Machine Asset Engine Framework (app.py Area Held Securely In Place) --- */
         .local-tool-section {
             background-color: var(--terminal-bg);
             border: 1px solid var(--border-purple);
@@ -341,13 +371,13 @@
             background: rgba(8, 8, 8, 0.93);
         }
 
-        /* --- Mobile Viewport Breakpoint Adjustments --- */
-        @media (max-width: 1024px) {
+        /* --- Mobile Breakpoint Adjustments --- */
+        @media (max-width: 1100px) {
             .workspace-grid {
                 grid-template-columns: 1fr;
             }
             .right-profile-panel {
-                order: -1; /* Retains priority identification element on top for compact viewports */
+                order: -1;
             }
             .engine-capabilities {
                 grid-template-columns: 1fr;
@@ -368,52 +398,80 @@
         </div>
     </header>
 
-    <!-- CORE INTERACTIVE WORKSPACE CONTAINER -->
+    <!-- MAIN INTERACTIVE WORKSPACE CONTAINER -->
     <main>
         
         <div class="workspace-grid">
             
-            <!-- LEFT SIDE: MINIMALIST ACCORDION BULLET LIST -->
+            <!-- LEFT SIDE: EXPANDED 9-TRACK BULLET INTERACTIVE LIST -->
             <section class="left-services-stack">
                 <h3 class="section-title-left">Creative Core Competencies</h3>
                 
                 <div class="bullet-service-item" tabindex="0">
                     <h4 data-num="01">Creative Business Development</h4>
                     <div class="bullet-definition">
-                        Rearchitecting standard customer conversion models into high-impact, automated business performance pipelines designed to push operational growth envelopes.
+                        Rearchitecting customer conversion structures into high-impact, automated business performance pipelines engineered to expand market share.
                     </div>
                 </div>
                 
                 <div class="bullet-service-item" tabindex="0">
                     <h4 data-num="02">Creative Business Planning</h4>
                     <div class="bullet-definition">
-                        Engineering dynamic scaling maps that seamlessly synthesize traditional logistics with high-level artistic performance frameworks.
+                        Engineering dynamic logistical scaling maps that seamlessly synthesize traditional milestones with high-level artistic creation metrics.
                     </div>
                 </div>
                 
                 <div class="bullet-service-item" tabindex="0">
                     <h4 data-num="03">Performing Arts as a Business Tool — Level 1</h4>
                     <div class="bullet-definition">
-                        Core execution mechanics: Transitioning fundamental theatrical timing, spatial awareness, and presence models directly into standard corporate leadership patterns.
+                        Core execution mechanics: Transitioning fundamental theatrical timing, spatial awareness, and stage models directly into standard executive communication.
                     </div>
                 </div>
                 
                 <div class="bullet-service-item" tabindex="0">
                     <h4 data-num="04">Performing Arts as a Business Tool — Level 2</h4>
                     <div class="bullet-definition">
-                        Intermediate coordination: Designing narrative hooks and precise emotional arrangement strings calculated to disarm audience skepticism and open communication vectors.
+                        Intermediate coordination: Designing narrative hooks, creative pattern-interrupts, and emotional arrangements calculated to lower customer defense shields.
                     </div>
                 </div>
                 
                 <div class="bullet-service-item" tabindex="0">
                     <h4 data-num="05">Performing Arts as a Business Tool — Level 3</h4>
                     <div class="bullet-definition">
-                        Master architecture tracks: Turning standard enterprise distribution methods into complex, live business performances that establish true authority within your target market.
+                        Master architecture tracks: Turning everyday corporate delivery methods into immersive, complex live showpieces that establish true industry authority.
+                    </div>
+                </div>
+
+                <div class="bullet-service-item" tabindex="0">
+                    <h4 data-num="06">Executive Presentation & Vocal Orchestration</h4>
+                    <div class="bullet-definition">
+                        Applying professional performance vocal training tracks to unlock projection control, pitch resonance, and command mechanics for corporate leaders.
+                    </div>
+                </div>
+
+                <div class="bullet-service-item" tabindex="0">
+                    <h4 data-num="07">Rhythmic Pattern & Focus Mechanics</h4>
+                    <div class="bullet-definition">
+                        Utilizing precision instrumental rhythmic foundations to train rapid conceptual focus, executive timing adjustments, and pattern execution under organizational stress.
+                    </div>
+                </div>
+
+                <div class="bullet-service-item" tabindex="0">
+                    <h4 data-num="08">Behavioral Strategy & Group Dynamics</h4>
+                    <div class="bullet-definition">
+                        Integrating advanced therapeutic insights to resolve team pipeline resistance and build high-trust collaborative organizational cultures.
+                    </div>
+                </div>
+
+                <div class="bullet-service-item" tabindex="0">
+                    <h4 data-num="09">Premium Brand Narrative Design</h4>
+                    <div class="bullet-definition">
+                        Architecting high-end visual, editorial, and experiential corporate aesthetics that position your services as premium market commodities.
                     </div>
                 </div>
             </section>
 
-            <!-- RIGHT SIDE: PHOTO, NAME, AND INTEGRATED STRATEGIC STORYLINE -->
+            <!-- RIGHT SIDE: ENHANCED PORTRAIT & NEW CALLIGRAPHIC MISSION STORYLINE -->
             <section class="right-profile-panel">
                 <div class="profile-frame-right">
                     <img src="Best Randy.jPG" alt="Randy Hensley Portrait"> 
@@ -423,11 +481,12 @@
                 
                 <div class="biography-narrative-box">
                     <h5>The H-Note Method</h5>
+                    <h6>The Intersection of Art & Alignment</h6>
                     <p>
-                        Randy Hensley has spent half his life developing and mastering the strategic architecture behind the H-Note Method. This signature system represents his true life’s work, acting as a bridge between hard behavioral logic and artistic performance. Drawing upon twelve years of high-level human service experience as a dedicated counselor, combined with six years of rigorous operational leadership as a non-profit director and pastor, Randy engineered a methodology that redefines how modern businesses communicate, scale, and captivate an audience.
+                        Randy Hensley has spent half his life developing and mastering the strategic architecture behind the H-Note Method. This signature system represents his true life’s work, acting as a profound bridge between hard behavioral logic and artistic performance. Drawing upon twelve years of high-level human service experience as a dedicated counselor, combined with six years of rigorous operational leadership as a non-profit director and pastor, Randy engineered a methodology that completely redefines how modern businesses communicate, scale, and captivate their target market.
                     </p>
                     <p>
-                        We specialize in taking the performing arts and turning them into creative business strategies and business developmental techniques. We take profound pride in what we do and believe that <strong>every business is like a show—a live, deliberate performance.</strong> Through these elite artistic principles, we give your enterprise the psychological alignment and staging it needs to shine significantly brighter than your competitors. That is the design metric of the H-Note standard.
+                        We specialize in taking the performing arts and turning them into creative business strategies and business developmental techniques. We take profound pride in what we do and believe that <strong>every business is like a show—a live, deliberate performance.</strong> Through these elite performance principles, we provide your enterprise with the psychological alignment, narrative rhythm, and staging it needs to shine significantly brighter than your competitors. That is the design metric of the H-Note standard.
                     </p>
                 </div>
             </section>
