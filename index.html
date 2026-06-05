@@ -8,7 +8,7 @@
         /* --- Core Theme & Color Palette --- */
         :root {
             --bg-black: #080808;
-            --dark-card: #121214; /* For the numbered blocks */
+            --dark-card: #121214; 
             --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
             --text-gold: #BF953F;
             --text-white: #EAEAEA;
@@ -49,7 +49,7 @@
             background: var(--gold-gradient);
             color: black;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 0.85rem;
             font-weight: bold;
             text-transform: uppercase;
@@ -71,16 +71,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 6%;
-            background-color: rgba(8, 8, 8, 0.9);
+            padding: 20px 6%;
+            background-color: rgba(8, 8, 8, 0.95);
             position: fixed;
             top: 0;
             z-index: 100;
             border-bottom: 1px solid var(--border-purple);
+            backdrop-filter: blur(10px);
         }
 
         .logo-area img {
-            height: 40px;
+            height: 50px;
+            display: block;
+            object-fit: contain;
         }
 
         nav ul {
@@ -102,7 +105,7 @@
 
         /* --- Main Hero Content Layout --- */
         main {
-            padding-top: 130px; /* Accounts for fixed header */
+            padding-top: 140px; 
             padding-bottom: 60px;
             width: 88%;
             max-width: 1300px;
@@ -121,22 +124,26 @@
         }
 
         .hero-text h1 {
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             line-height: 1.1;
             font-weight: 800;
             color: var(--text-white);
+            letter-spacing: -1px;
         }
 
         .hero-text h1 span.highlight {
             display: block;
             color: var(--text-gold);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-text p.sub-headline {
             color: var(--muted-text);
             font-size: 1.2rem;
-            max-width: 80%;
-            margin-bottom: 30px;
+            max-width: 90%;
+            margin-bottom: 20px;
         }
 
         /* Numbered Module Grid */
@@ -184,21 +191,28 @@
         /* Profile Card */
         .profile-card {
             background-color: var(--dark-card);
-            border: 1px solid var(--text-gold); /* Prominent gold border */
+            border: 1px solid var(--text-gold); 
             border-radius: 12px;
-            padding: 30px;
+            padding: 25px;
             width: 100%;
             max-width: 400px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
 
-        .profile-card img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 3px solid var(--text-gold);
-            margin-bottom: 20px;
+        .profile-frame {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #BF953F;
+            box-shadow: 0 0 15px rgba(191, 149, 63, 0.2);
+        }
+
+        .profile-frame img {
+            width: 100%;
+            display: block;
             object-fit: cover;
         }
 
@@ -213,6 +227,7 @@
             color: var(--muted-text);
             font-size: 0.95rem;
             margin-bottom: 15px;
+            letter-spacing: 0.5px;
         }
 
         .profile-card button {
@@ -234,25 +249,27 @@
         /* Secure Uplink Call to Action */
         .uplink-box {
             text-align: center;
-            background-color: #1A1A1D; /* Specific gray from the mock */
+            background-color: #16161a; 
             border: 1px solid var(--border-purple);
             border-radius: 8px;
-            padding: 20px;
+            padding: 25px;
             width: 100%;
             max-width: 400px;
         }
 
         .uplink-box p {
-            font-size: 0.9rem;
-            color: var(--muted-text);
-            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-white);
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         /* --- Footer --- */
         footer {
             width: 88%;
             max-width: 1300px;
-            margin: 0 auto;
+            margin: 40px auto 0 auto;
             text-align: center;
             padding: 30px 0;
             border-top: 1px solid var(--border-purple);
@@ -262,27 +279,25 @@
 
         footer .mission {
             color: var(--muted-text);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 1rem;
         }
 
         footer .contact {
             font-size: 0.8rem;
+            color: #666;
         }
 
-        /* --- Responsive Design for Smaller Screens --- */
+        /* --- Responsive Design --- */
         @media (max-width: 1024px) {
             main {
                 grid-template-columns: 1fr;
                 gap: 50px;
-                padding-top: 120px;
+                padding-top: 130px;
             }
 
             .hero-text h1 {
                 font-size: 3rem;
-            }
-
-            .right-column {
-                align-items: center;
             }
         }
 
@@ -298,11 +313,11 @@
             }
 
             main {
-                padding-top: 180px;
+                padding-top: 190px;
             }
 
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
         }
     </style>
@@ -312,7 +327,8 @@
     <!-- SITE HEADER & NAV -->
     <header>
         <div class="logo-area">
-            <img src="path/to/h_note_logo_gold.png" alt="H-Note Logo"> <!-- Add your gold logo image path -->
+            <!-- References your updated asset file verbatim -->
+            <img src="best Logo.JPG" alt="H-Note Creative Solutions Logo"> 
         </div>
         <nav>
             <ul>
@@ -333,43 +349,46 @@
                 <span class="highlight">& STRATEGIC PLANNING</span>
             </h1>
             <p class="sub-headline">
-                Blending Deep Psychology with Data-Driven Execution
+                Blending Deep Psychology with Data-Driven Execution.
             </p>
 
             <div class="modules-grid">
                 <div class="module-card">
                     <span class="gold-number">01.</span>
-                    <h4>Forensic Data Scraping</h4>
+                    <h4>Entrepreneurial Architecture Blueprint</h4>
                 </div>
                 <div class="module-card">
                     <span class="gold-number">02.</span>
-                    <h4>Behavioral Psych Tuning</h4>
+                    <h4>High-Ticket Offer Positioning</h4>
                 </div>
                 <div class="module-card">
                     <span class="gold-number">03.</span>
-                    <h4>Secure Asset Pipelines</h4>
+                    <h4>Scale & Workflow System Autonomy</h4>
                 </div>
                 <div class="module-card">
                     <span class="gold-number">04.</span>
-                    <h4>Local Command Center</h4>
+                    <h4>Monetization Infrastructure Alignment</h4>
                 </div>
             </div>
         </div>
 
         <!-- Right Section: Profile and Action -->
         <div class="right-column">
-            <!-- RANDY HENSLEY Profile -->
+            <!-- Profile Block -->
             <div class="profile-card">
-                <img src="path/to/randy_hensley_profile.jpg" alt="Randy Hensley"> <!-- Add your image path -->
+                <div class="profile-frame">
+                    <!-- References your portrait asset file verbatim -->
+                    <img src="Best Randy.jPG" alt="Randy Hensley"> 
+                </div>
                 <h3>Randy Hensley, <span class="gold-glow">CACDA II</span></h3>
                 <p class="title">Chief Strategist / Executive Coach</p>
-                <button>Listen to the Method</button>
+                <button onclick="alert('Launching H-Note Audio Method Overview...')">Listen to the Method</button>
             </div>
 
-            <!-- Counseling Services Call-to-Action -->
+            <!-- Strategy Session Action Block -->
             <div class="uplink-box">
-                <p>Counseling Services</p>
-                <button class="gold-btn">Initialize Audit Protocol / Set Appointment</button>
+                <p>Strategic Infrastructure Hub</p>
+                <button class="gold-btn" onclick="alert('Redirecting to Onboarding Intake Form Protocol...')">Initialize Assessment / Set Appointment</button>
             </div>
         </div>
 
@@ -382,7 +401,7 @@
             <span class="gold-glow">Integrating Arts & Psychology into Strategic Commerce</span>
         </p>
         <p class="contact">
-            Minimal Contact | For Inquiries: strategic@h-note.ca | All Systems Operational
+            Minimal Contact | Secure Pipeline Active | All Systems Operational
         </p>
     </footer>
 
